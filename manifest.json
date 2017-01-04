@@ -1,0 +1,7 @@
+{
+  "manifest_version": 2,
+  "name": "Privacy friendly Cookie settings",
+  "version": "1.0",
+  "default_local": "de",
+  "description": "Dieses Plugin ermöglicht es Ihnen auf einfache weise Ihre Einstellungen, bezüglich der verwaltung der Cookies, vorzunehmen."
+}
