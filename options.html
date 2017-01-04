@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="js/jquery-3.1.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Change the Cookie Settings</title>
+</head>
+<body>
+<div class="text-center">
+<h1>Ihre Coockie Einstellungen</h1>
+<p>
+    Hier können Sie ihre persöhnlichen Cookie Einstellungen anpassen.
+</p>
+</div>
+<div>
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#general" aria-controls="general" role="tab" data-toggle="tab">Allgemeine Einstellungen</a></li>
+        <li role="presentation"><a href="#specific" aria-controls="specific" role="tab" data-toggle="tab">Seitenspeziefische Einstellungen</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="general">
+            <h2>Allgemeine Einstellungen</h2>
+            <p>
+                Mit den folgenden Optionen können Sie festlegen wie mit Cookies auf Ihrem System allgemein verfahren werden soll.
+                Um eine Entscheidung zu treffen sollten Sie sich die Vor- und Nachteile durchlesen.
+            </p>
+            <div class="panel panel-default">
+                <div class="panel-heading row">
+                    <div class="col-md-4">
+                        <h3 class="panel-title">Drittanbieter Cookies Speichern</h3>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="img/not_checked32.png" width="32" height="32">
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+                <div class="panel-body">
+                    <h4>Vorteile:</h4>
+                    <p>
+                        Durch das Aktivieren dieser Option verhindern Sie die Seite eines Dritten einen Cookie setzt.
+                        Durch dieses Cookies kann eine Dritte Seite feststellen wo Sie im Internet gewesen sind.
+                    </p>
+                    <h4>Nachteile:</h4>
+                    <p>
+                        Wenn Sie diese Option einschalten kann es auf manchen Seiten zu Problemen kommen, so dass diese Seite
+                        nicht richtig benutzt werden kann. Das liegt daran das manche Seiten ihre geschäfte über Drittanbieter regeln.
+                        Wie zum Beispiel das bezahlen mit PayPal oder auch das Reservieren von Karten für eine Veranstalltung.
+                        Sie sollten diese Option aber nur für speziefische Seiten ausschalten um Ihre Privatsphäre besser zu schützen.
+                    </p>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading row">
+                    <div class="col-md-4">
+                        <h3 class="panel-title">Speichern von Cookies</h3>
+                    </div>
+                    <div class="col-md-4">
+                        <label>
+                            <select class="form-control">
+                                <option>Immer</option>
+                                <option>Bis der Browser geschlossen wird</option>
+                                <option>Niemals</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+                <div class="panel-body">
+                    <h4>Vorteile:</h4>
+                    <p>
+                        Mit dieser Option bestimmen sie wie lange ein Cookie auf Ihrem Computer gespeichert werden soll.<br/>
+                        <b>Immer: </b> Die Cookies werden nie gelöscht.<br/>
+                        <b>Bis der Browser geschlossen wird: </b> Wenn Sie den Browser schließen werden alle Cookies gelöscht.<br/>
+                        <b>Niemals: </b> Es werden keine Cookies gespeichert auf Ihrem Computer.<br/>
+                    </p>
+                    <h4>Nachteile:</h4>
+                    <p>
+                        Ein gespeicherte Cookie kann von Ihrem Computer ausgelesen werden und so können von einer Website gespeicherte
+                        Informationen an andere Personen gelangen. Es können auch Cookies die für den Login bei einer Website
+                        benutzt werden von Ihrem Computer gestolen werden.
+                    </p>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading row">
+                    <h3 class="panel-title">Cookie Speicher Verwalten</h3>
+                </div>
+                <div class="panel-body">
+                    <form class="form-inline">
+                        <button class="btn btn-primary">Alle Cookies Löschen</button>
+                        <label>
+                            Von:
+                            <input type="date">
+                        </label>
+                        <label>
+                            Bis:
+                            <input type="date">
+                        </label>
+                        <button class="btn btn-primary">Cookies in diesem Zeitraum Löschen</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="specific">
+            <h2>Seitenspeziefische Einstellungen</h2>
+            <p>
+                Hier können Sie für einzelne Seiten die Einstellungen vornehmen. Diese Einstellungen überschreiben die
+                Allgemeinen Einstellungen für diese bestimmte Seite.
+            </p>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form>
+                        <p>
+                            Von wann bis wann soll Ihr Verlauf durchsucht werden, sofern Sie es wollen.
+                        </p>
+                        <div class="form-group">
+                            <label>Von:
+                                <input type="date">
+                            </label>
+                            <label>Bis:
+                                <input type="date">
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary">Verlauf durchsuchen</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <table class="table">
+                    <tr>
+                        <td>Seite 1</td>
+                        <td><button class="btn btn-primary">Einstellungen</button></td>
+                    </tr>
+                    <tr>
+                        <td>Seite 2</td>
+                        <td><button class="btn btn-primary">Einstellungen</button></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel panel-default">
+                    <div class="panel-heading row">
+                        <div class="col-md-4">
+                            <h3 class="panel-title">Drittanbieter Cookies Speichern</h3>
+                        </div>
+                        <div class="col-md-4">
+                            <img src="img/not_checked32.png" width="32" height="32">
+                        </div>
+                        <div class="col-md-4"></div>
+                    </div>
+                    <div class="panel-body">
+                        <h4>Vorteile:</h4>
+                        <p>
+                            Durch das Aktivieren dieser Option verhindern Sie die Seite eines Dritten einen Cookie setzt.
+                            Durch dieses Cookies kann eine Dritte Seite feststellen wo Sie im Internet gewesen sind.
+                        </p>
+                        <h4>Nachteile:</h4>
+                        <p>
+                            Wenn Sie diese Option einschalten kann es auf manchen Seiten zu Problemen kommen, so dass diese Seite
+                            nicht richtig benutzt werden kann. Das liegt daran das manche Seiten ihre geschäfte über Drittanbieter regeln.
+                            Wie zum Beispiel das bezahlen mit PayPal oder auch das Reservieren von Karten für eine Veranstalltung.
+                            Sie sollten diese Option aber nur für speziefische Seiten ausschalten um Ihre Privatsphäre besser zu schützen.
+                        </p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading row">
+                        <div class="col-md-4">
+                            <h3 class="panel-title">Speichern von Cookies</h3>
+                        </div>
+                        <div class="col-md-4">
+                            <label>
+                                <select class="form-control">
+                                    <option>Immer</option>
+                                    <option>Bis der Browser geschlossen wird</option>
+                                    <option>Niemals</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="col-md-4"></div>
+                    </div>
+                    <div class="panel-body">
+                        <h4>Vorteile:</h4>
+                        <p>
+                            Mit dieser Option bestimmen sie wie lange ein Cookie auf Ihrem Computer gespeichert werden soll.<br/>
+                            <b>Immer: </b> Die Cookies werden nie gelöscht.<br/>
+                            <b>Bis der Browser geschlossen wird: </b> Wenn Sie den Browser schließen werden alle Cookies gelöscht.<br/>
+                            <b>Niemals: </b> Es werden keine Cookies gespeichert auf Ihrem Computer.<br/>
+                        </p>
+                        <h4>Nachteile:</h4>
+                        <p>
+                            Ein gespeicherte Cookie kann von Ihrem Computer ausgelesen werden und so können von einer Website gespeicherte
+                            Informationen an andere Personen gelangen. Es können auch Cookies die für den Login bei einer Website
+                            benutzt werden von Ihrem Computer gestolen werden.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
