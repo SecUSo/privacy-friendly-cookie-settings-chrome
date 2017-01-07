@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <script src="js/jquery-3.1.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/options.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <title>Change the Cookie Settings</title>
 </head>
@@ -36,7 +37,7 @@
                         <h3 class="panel-title">Drittanbieter Cookies Speichern</h3>
                     </div>
                     <div class="col-md-4">
-                        <img src="img/not_checked32.png" width="32" height="32">
+                        <img src="img/not_checked32.png" width="32" height="32" class="imgCheckbox">
                     </div>
                     <div class="col-md-4"></div>
                 </div>
@@ -96,11 +97,11 @@
                         <button class="btn btn-primary">Alle Cookies Löschen</button>
                         <label>
                             Von:
-                            <input type="date">
+                            <input type="date" class="begin">
                         </label>
                         <label>
                             Bis:
-                            <input type="date">
+                            <input type="date" class="end">
                         </label>
                         <button class="btn btn-primary">Cookies in diesem Zeitraum Löschen</button>
                     </form>
@@ -115,44 +116,58 @@
             </p>
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <form>
+                    <div>
                         <p>
                             Von wann bis wann soll Ihr Verlauf durchsucht werden, sofern Sie es wollen.
                         </p>
                         <div class="form-group">
                             <label>Von:
-                                <input type="date">
+                                <input type="date" class="begin" id="beginSpec">
                             </label>
                             <label>Bis:
-                                <input type="date">
+                                <input type="date" class="end" id="endSpec">
                             </label>
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-primary">Verlauf durchsuchen</button>
+                            <button class="btn btn-primary" id="historybtn">Verlauf durchsuchen</button>
+                            <label>
+                                Wie viele Seiten sollen angezeigt werden?
+                                <input type="text" id="amountOfSites" list="predefined" value="10">
+                                <datalist id="predefined">
+                                    <option value="5"></option>
+                                    <option value="10"></option>
+                                    <option value="15"></option>
+                                    <option value="20"></option>
+                                </datalist>
+                            </label>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
             <div class="panel panel-default">
-                <table class="table">
+                <table class="table" id="tabofSites">
+                    <thead>
                     <tr>
-                        <td>Seite 1</td>
-                        <td><button class="btn btn-primary">Einstellungen</button></td>
+                        <td><b>Seiten</b></td>
+                        <td></td>
                     </tr>
-                    <tr>
-                        <td>Seite 2</td>
-                        <td><button class="btn btn-primary">Einstellungen</button></td>
-                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
                 </table>
             </div>
-            <div class="panel panel-default">
+            <div class="panel panel-default" id="settings">
+                <div class="panel-heading">
+                    <h3>Einstellungen <b id="site"></b></h3>
+                </div>
                 <div class="panel panel-default">
                     <div class="panel-heading row">
                         <div class="col-md-4">
                             <h3 class="panel-title">Drittanbieter Cookies Speichern</h3>
                         </div>
                         <div class="col-md-4">
-                            <img src="img/not_checked32.png" width="32" height="32">
+                            <img src="img/not_checked32.png" width="32" height="32" class="imgCheckbox">
                         </div>
                         <div class="col-md-4"></div>
                     </div>
@@ -209,7 +224,7 @@
                             <h3 class="panel-title">Login Cookies behalten</h3>
                         </div>
                         <div class="col-md-4">
-                            <img src="img/not_checked32.png" width="32" height="32">
+                            <img src="img/not_checked32.png" width="32" height="32" class="imgCheckbox">
                         </div>
                         <div class="col-md-4"></div>
                     </div>
