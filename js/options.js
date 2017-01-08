@@ -22,32 +22,53 @@ function getDomainFromURLString(url) {
     return domain;
 }
 
-var thirdPartyCookieAllowed;
-var cookieLiveTime;
+function getThirdpartySetting(callback) {
+    chrome.runtime.sendMessage( {getThirdparty:true},callback);
+}
 
-chrome.contentSettings.cookies.get({
-    "primaryUrl": "http://google.*"
-},function (details) {
-    var val = details.setting;
-    if (val === "allow"){
-        cookieLiveTime = 0;
-    } else if (val === "session_only"){
-        cookieLiveTime = 1;
-    } else {
-        cookieLiveTime = 2;
-    }
-});
-chrome.privacy.websites.thirdPartyCookiesAllowed.get({},function (details) {
-    thirdPartyCookieAllowed = details.value;
-});
+function getCookieLivetimeSetting(callback) {
+    chrome.runtime.sendMessage( {getCookieLivetime: true}, callback);
+}
+
+function setThirdpartySetting(value) {
+    chrome.runtime.sendMessage({setThirdparty:{value:value}});
+}
+
+function setCookieLivetimeSetting(pattern,value) {
+    var settings = ["allow","session_only","block"];
+    chrome.runtime.sendMessage({setCookieLivetime: {
+        value : settings[value],
+        pattern : pattern
+    }});
+}
 
 $(document).ready(function () {
-    if (thirdPartyCookieAllowed){
-        $("#thirdPartyGeneral").attr("src","img/checked.png");
-    }
-    if (cookieLiveTime !== undefined){
-        document.getElementById('cookieLivetimeGeneral').selectedIndex = cookieLiveTime;
-    }
+    getThirdpartySetting(function (response) {
+        var thirdPartyCookieAllowed = response.thirdparty;
+        if (thirdPartyCookieAllowed !== undefined){
+            if (thirdPartyCookieAllowed)
+                $("#thirdPartyGeneral").attr("src","img/checked32.png");
+        }
+    });
+    getCookieLivetimeSetting(function (response) {
+        var cookieLiveTime = response.cookieLivetime;
+        if (cookieLiveTime !== undefined){
+            document.getElementById('cookieLivetimeGeneral').selectedIndex = cookieLiveTime;
+        }
+    });
+    $("#cookieLivetimeGeneral").on("change",function (e) {
+        setCookieLivetimeSetting("<all_urls>",this.selectedIndex);
+    });
+    $("#thirdPartyGeneral").click(function () {
+        var src = $("#thirdPartyGeneral").attr("src");
+        if (src.indexOf("not") === -1){
+            setThirdpartySetting(false);
+            $("#thirdPartyGeneral").attr("src","img/not_checked32.png");
+        } else {
+            setThirdpartySetting(true);
+            $("#thirdPartyGeneral").attr("src","img/checked32.png");
+        }
+    });
     var historybtn = document.getElementById("historybtn");
     var startofyear = new Date();
     startofyear.setMonth(0,1);

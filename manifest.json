@@ -10,12 +10,16 @@
   },
   "permissions": [
     "history",
+    "nativeMessaging",
     "contentSettings",
     "privacy",
-    "browsingData"
+    "browsingData",
+    "cookies"
   ],
   "background": {
-    "scripts": ["js/background.js"],
+    "scripts": [
+      "background.js"
+    ],
     "persistent": false
   },
   "browser_action": {
