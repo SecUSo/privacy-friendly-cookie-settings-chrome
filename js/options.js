@@ -1,7 +1,7 @@
 function dateToRequiredFormat(date) {
     var year = date.getFullYear();
     var month = date.getMonth()+1;
-    var day = date.getDay()+1;
+    var day = date.getDate();
     if (month < 10){
         month = '0' + month;
     }
@@ -69,6 +69,11 @@ $(document).ready(function () {
             $("#thirdPartyGeneral").attr("src","img/checked32.png");
         }
     });
+    $("#cookieLivetimeSpecific").on("change",function (e) {
+        var url = $("#site").text();
+        url = url.indexOf("http") === -1 ? "*://" + url + "/*" : url + "/*";
+        setCookieLivetimeSetting(url,this.selectedIndex);
+    });
     var historybtn = document.getElementById("historybtn");
     var startofyear = new Date();
     startofyear.setMonth(0,1);
@@ -85,6 +90,7 @@ $(document).ready(function () {
             "endTime": end.getTime()
         },function (results) {
             var modHistory = {};
+            console.log(results);
             for (var i = 0; i < results.length; i++){
                 var historyItem = results[i];
                 var key = getDomainFromURLString(historyItem.url);
@@ -109,6 +115,16 @@ $(document).ready(function () {
                 $("#site").text(domain);
                 $("#settings").show();
             });
+        });
+    });
+    $("#addManuellSite").click(function () {
+        var site = $("#manSiteInput").val();
+        var tabofSites = $("#tabofSites").find("> tbody");
+        tabofSites.append("<tr><td>" + site + "</td> <td><button class=\"btn btn-primary specbtn\">Einstellungen</button></td></tr>");
+        $(".specbtn").click(function (e) {
+            var domain = e.target.parentNode.parentNode.firstChild.textContent;
+            $("#site").text(domain);
+            $("#settings").show();
         });
     });
     $("#removeAllCookies").click(function () {

@@ -148,6 +148,15 @@
                         <td><b>Seiten</b></td>
                         <td></td>
                     </tr>
+                    <tr>
+                        <td><div class="form-group">
+                            <label>
+                                Manuelle Eingabe der Seiten:
+                                <input type="text" id="manSiteInput">
+                            </label>
+                            <button class="btn btn-primary" id="addManuellSite">Hinzufügen</button>
+                        </div></td>
+                    </tr>
                     </thead>
                     <tbody>
 
@@ -190,7 +199,7 @@
                         </div>
                         <div class="col-md-4">
                             <label>
-                                <select class="form-control">
+                                <select class="form-control" id="cookieLivetimeSpecific">
                                     <option>Immer</option>
                                     <option>Bis der Browser geschlossen wird</option>
                                     <option>Niemals</option>
@@ -215,7 +224,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="panel panel-default">
+               <div class="panel panel-default">
                     <div class="panel-heading row">
                         <div class="col-md-4">
                             <h3 class="panel-title">Login Cookies behalten</h3>
@@ -249,6 +258,23 @@
                 Mithilfe dieses Assistenten der Ihnen eine reihe von Fragen Stellt können sie auf einfach Art und weise
                 Ihre Einstellungen für die Cookie Verwaltung auf Ihrem System vornehmen.
             </p>
+            <div class="panel panel-default" id="q1">
+                <div class="panel-heading">
+                    <h3>Wollen Sie Cookies auf Ihrem System speichern?</h3>
+                </div>
+                <div class="panel-body">
+                    Wenn Sie es erlauben (Ja) Cookies auf Ihrem System zu speichern ermöglichen Sie es Webseiten Daten
+                    über Sie zu sammeln. Wenn Sie es nicht erlauben (Nein) Cookies auf Ihrem System zu Speichern könnte
+                    es sein das manche Webseiten Probleme haben Ihnen bestimmte Services anzubieten. Ein Cookie bietet
+                    Einer Webseite nähmlich die möglichkeit Informationen zu Speichern wie z.B. was Sie bis jetzt in
+                    Ihrem Einkaufswagen haben oder ob Sie bereits angemeldet sind. Ohne Cookies wäre es nicht möglich
+                    einen solche Funktionalität anzubieten.
+                </div>
+                <div class="panel-footer">
+                    <button class="btn btn-primary" id="q1yes">Ja</button>
+                    <button class="btn btn-primary" id="q1no">Nein</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
