@@ -2,9 +2,97 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="js/jquery-3.1.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <title>Cookie Settings</title>
 </head>
-<body>
-
+<body style="width: 300px">
+<div class="panel panel-info">
+    <div class="panel-heading" data-toggle="collapse" data-target="#collapse_thirdparty" aria-expanded="true" aria-controls="collapse_thirdparty">
+        <h3 class="panel-title">Drittanbieter Cookies Speichern</h3>
+    </div>
+    <div class="panel-body" id="collapse_thirdparty">
+        <img src="img/not_checked32.png" width="32" height="32" class="imgCheckbox">
+        <button class="btn btn-default btn-xs btn-block" data-toggle="collapse" data-target="#pro_thirdparty" aria-expanded="false" aria-controls="pro_thirdparty">
+            <span class="glyphicon glyphicon-chevron-down pull-left"></span>Vorteile
+        </button>
+        <p class="collapse well" id="pro_thirdparty">
+            Durch das Aktivieren dieser Option verhindern Sie die Seite eines Dritten einen Cookie setzt.
+            Durch dieses Cookies kann eine Dritte Seite feststellen wo Sie im Internet gewesen sind.
+        </p>
+        <button class="btn btn-default btn-xs btn-block" data-toggle="collapse" data-target="#con_thirdparty" aria-expanded="false" aria-controls="con_thirdparty">
+            <span class="glyphicon glyphicon-chevron-down pull-left"></span>Nachteile
+        </button>
+        <p class="collapse well" id="con_thirdparty">
+            Wenn Sie diese Option einschalten kann es auf manchen Seiten zu Problemen kommen, so dass diese Seite
+            nicht richtig benutzt werden kann. Das liegt daran das manche Seiten ihre geschäfte über Drittanbieter
+            regeln.
+            Wie zum Beispiel das bezahlen mit PayPal oder auch das Reservieren von Karten für eine Veranstalltung.
+            Sie sollten diese Option aber nur für speziefische Seiten ausschalten um Ihre Privatsphäre besser zu
+            schützen.
+        </p>
+    </div>
+</div>
+<div class="panel panel-info">
+    <div class="panel-heading" data-toggle="collapse" data-target="#collapse_livetime" aria-expanded="true" aria-controls="collapse_livetime" >
+        <h3 class="panel-title">Speichern von Cookies</h3>
+    </div>
+    <div class="panel-body collapse" id="collapse_livetime">
+        <label>
+            <select class="form-control" id="cookieLivetimeSpecific">
+                <option>Immer</option>
+                <option>Bis der Browser geschlossen wird</option>
+                <option>Niemals</option>
+            </select>
+        </label>
+        <button class="btn btn-default btn-xs btn-block" data-toggle="collapse" data-target="#pro_livetime" aria-expanded="false" aria-controls="pro_livetime">
+            <span class="glyphicon glyphicon-chevron-down pull-left"></span>Vorteile
+        </button>
+        <p class="well collapse" id="pro_livetime">
+            Mit dieser Option bestimmen sie wie lange ein Cookie auf Ihrem Computer gespeichert werden soll.<br/>
+            <b>Immer: </b> Die Cookies werden nie gelöscht.<br/>
+            <b>Bis der Browser geschlossen wird: </b> Wenn Sie den Browser schließen werden alle Cookies
+            gelöscht.<br/>
+            <b>Niemals: </b> Es werden keine Cookies gespeichert auf Ihrem Computer.<br/>
+        </p>
+        <button class="btn btn-default btn-xs btn-block" data-toggle="collapse" data-target="#con_livetime" aria-expanded="false" aria-controls="con_livetime">
+            <span class="glyphicon glyphicon-chevron-down pull-left"></span>Nachteile
+        </button>
+        <p class="well collapse" id="con_livetime">
+            Ein gespeicherte Cookie kann von Ihrem Computer ausgelesen werden und so können von einer Website
+            gespeicherte
+            Informationen an andere Personen gelangen. Es können auch Cookies die für den Login bei einer Website
+            benutzt werden von Ihrem Computer gestolen werden.
+        </p>
+    </div>
+</div>
+<div class="panel panel-info">
+    <div class="panel-heading" data-toggle="collapse" data-target="#collapse_login" aria-expanded="false" aria-controls="collapse_login">
+        <h3 class="panel-title">Login Cookies behalten</h3>
+    </div>
+    <div class="panel-body collapse" id="collapse_login">
+        <img src="img/not_checked32.png" width="32" height="32" class="imgCheckbox">
+        <button class="btn btn-default btn-xs btn-block" data-toggle="collapse" data-target="#pro_login" aria-expanded="false" aria-controls="pro_login">
+            <span class="glyphicon glyphicon-chevron-down pull-left"></span>Vorteile
+        </button>
+        <p class="well collapse" id="pro_login">
+            Mit dieser Option bestimmen sie wie lange ein Cookie auf Ihrem Computer gespeichert werden soll.<br/>
+            <b>Immer: </b> Die Cookies werden nie gelöscht.<br/>
+            <b>Bis der Browser geschlossen wird: </b> Wenn Sie den Browser schließen werden alle Cookies
+            gelöscht.<br/>
+            <b>Niemals: </b> Es werden keine Cookies gespeichert auf Ihrem Computer.<br/>
+        </p>
+        <button class="btn btn-default btn-xs btn-block" data-toggle="collapse" data-target="#con_login" aria-expanded="false" aria-controls="con_login">
+            <span class="glyphicon glyphicon-chevron-down pull-left"></span>Nachteile
+        </button>
+        <p class="well collapse" id="con_login">
+            Ein gespeicherte Cookie kann von Ihrem Computer ausgelesen werden und so können von einer Website
+            gespeicherte
+            Informationen an andere Personen gelangen. Es können auch Cookies die für den Login bei einer Website
+            benutzt werden von Ihrem Computer gestolen werden.
+        </p>
+    </div>
+</div>
 </body>
 </html>
