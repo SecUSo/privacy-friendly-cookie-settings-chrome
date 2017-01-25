@@ -14,7 +14,7 @@
     "contentSettings",
     "privacy",
     "browsingData",
-    "cookies"
+    "tabs"
   ],
   "background": {
     "scripts": [

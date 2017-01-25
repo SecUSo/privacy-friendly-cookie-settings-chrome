@@ -8,8 +8,11 @@ chrome.runtime.onMessage.addListener(
             return true;
         }
         if (request.getCookieLivetime){
+            var url = request.getCookieLivetime.url || "http://*.*";
+            url = (url.indexOf("http") === -1) ? "http://" + url + "/*" : url + "/*";
+            console.log(url);
             chrome.contentSettings.cookies.get({
-                "primaryUrl": "http://*.*"
+                "primaryUrl": url
             },function (details) {
                 var val = details.setting;
                 var livetime;
@@ -39,7 +42,3 @@ chrome.runtime.onMessage.addListener(
             return true;
         }
     });
-
-chrome.cookies.onChanged.addListener(function (changeInfo) {
-    console.log(changeInfo);
-});

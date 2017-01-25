@@ -26,8 +26,10 @@ function getThirdpartySetting(callback) {
     chrome.runtime.sendMessage( {getThirdparty:true},callback);
 }
 
-function getCookieLivetimeSetting(callback) {
-    chrome.runtime.sendMessage( {getCookieLivetime: true}, callback);
+function getCookieLivetimeSetting(callback,url) {
+    chrome.runtime.sendMessage( {getCookieLivetime: {
+        url: url
+    }}, callback);
 }
 
 function setThirdpartySetting(value) {
@@ -90,7 +92,6 @@ $(document).ready(function () {
             "endTime": end.getTime()
         },function (results) {
             var modHistory = {};
-            console.log(results);
             for (var i = 0; i < results.length; i++){
                 var historyItem = results[i];
                 var key = getDomainFromURLString(historyItem.url);
@@ -113,7 +114,11 @@ $(document).ready(function () {
             $(".specbtn").click(function (e) {
                 var domain = e.target.parentNode.parentNode.firstChild.textContent;
                 $("#site").text(domain);
-                $("#settings").show();
+                getCookieLivetimeSetting(function (response) {
+                    console.log(response);
+                    document.getElementById("cookieLivetimeSpecific").selectedIndex = response.cookieLivetime;
+                    $("#settings").show();
+                },domain);
             });
         });
     });
@@ -124,7 +129,10 @@ $(document).ready(function () {
         $(".specbtn").click(function (e) {
             var domain = e.target.parentNode.parentNode.firstChild.textContent;
             $("#site").text(domain);
-            $("#settings").show();
+            getCookieLivetimeSetting(function (response) {
+                document.getElementById("cookieLivetimeSpecific").selectedIndex = response.cookieLivetime;
+                $("#settings").show();
+            },domain);
         });
     });
     $("#removeAllCookies").click(function () {
