@@ -136,10 +136,26 @@ $(document).ready(function () {
         });
     });
     $("#removeAllCookies").click(function () {
-        chrome.browsingData.removeCookies({"since":0});
+        chrome.browsingData.removeCookies({"since":0},function () {
+            console.log("Hallo");
+        });
+        chrome.notifications.create("removesuccess",{
+            type: "basic",
+            iconUrl: "img/logo32.png",
+            title: "Removed all Cookies",
+            message: "Es wurden alle Cookies entfernt",
+            priority: 0
+        });
     });
     $("#removeSince").click(function () {
         var since = new Date($("#since").val());
         chrome.browsingData.removeCookies({"since":since.getTime()});
+        chrome.notifications.create("removesuccess",{
+            type: "basic",
+            iconUrl: "img/logo32.png",
+            title: "Removed Cookies since (" + since.toDateString() + ")",
+            message: "Es wurden alle Cookies entfernt, die seit (" + since.toDateString() + ") erstellt wurden.",
+            priority: 0
+        });
     });
 });
