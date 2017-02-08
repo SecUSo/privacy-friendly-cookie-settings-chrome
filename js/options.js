@@ -114,8 +114,21 @@ $(document).ready(function () {
             $(".specbtn").click(function (e) {
                 var domain = e.target.parentNode.parentNode.firstChild.textContent;
                 $("#site").text(domain);
+                chrome.storage.sync.get(domain,function (items) {
+                    if (chrome.runtime.lastError){
+                        var obj = {};
+                        obj[domain] = false;
+                        chrome.storage.sync.set(obj);
+                        $("#logincookies").attr("src","img/not_checked32.png");
+                    } else {
+                        if (items[domain]){
+                            $("#logincookies").attr("src","img/checked32.png");
+                        } else{
+                            $("#logincookies").attr("src","img/not_checked32.png");
+                        }
+                    }
+                });
                 getCookieLivetimeSetting(function (response) {
-                    console.log(response);
                     document.getElementById("cookieLivetimeSpecific").selectedIndex = response.cookieLivetime;
                     $("#settings").show();
                 },domain);
@@ -128,6 +141,20 @@ $(document).ready(function () {
         tabofSites.append("<tr><td>" + site + "</td> <td><button class=\"btn btn-primary specbtn\">Einstellungen</button></td></tr>");
         $(".specbtn").click(function (e) {
             var domain = e.target.parentNode.parentNode.firstChild.textContent;
+            chrome.storage.sync.get(domain,function (items) {
+                if (chrome.runtime.lastError){
+                    var obj = {};
+                    obj[domain] = false;
+                    chrome.storage.sync.set(obj);
+                    $("#logincookies").attr("src","img/not_checked32.png");
+                } else {
+                    if (items[domain]){
+                        $("#logincookies").attr("src","img/checked32.png");
+                    } else{
+                        $("#logincookies").attr("src","img/not_checked32.png");
+                    }
+                }
+            });
             $("#site").text(domain);
             getCookieLivetimeSetting(function (response) {
                 document.getElementById("cookieLivetimeSpecific").selectedIndex = response.cookieLivetime;
@@ -158,4 +185,36 @@ $(document).ready(function () {
             priority: 0
         });
     });
+    $("[aria-controls=general]").click(function () {
+        getThirdpartySetting(function (response) {
+            var thirdPartyCookieAllowed = response.thirdparty;
+            if (thirdPartyCookieAllowed !== undefined){
+                if (thirdPartyCookieAllowed)
+                    $("#thirdPartyGeneral").attr("src","img/checked32.png");
+            }
+        });
+        getCookieLivetimeSetting(function (response) {
+            var cookieLiveTime = response.cookieLivetime;
+            if (cookieLiveTime !== undefined){
+                document.getElementById('cookieLivetimeGeneral').selectedIndex = cookieLiveTime;
+            }
+        });
+    });
+    $("#logincookies").click(function () {
+        var src = $("#logincookies").attr("src");
+        var url = $("#site").text();
+        var obj = {};
+        chrome.storage.sync.get(url,function (items) {
+            if (src.indexOf("not") === -1){
+                obj[url] = false;
+                chrome.storage.sync.set(obj);
+                $("#logincookies").attr("src","img/not_checked32.png");
+            } else {
+                obj[url] = true;
+                chrome.storage.sync.set(obj);
+                $("#logincookies").attr("src","img/checked32.png");
+            }
+        });
+
+    })
 });

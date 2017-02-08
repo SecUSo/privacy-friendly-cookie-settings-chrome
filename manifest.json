@@ -15,7 +15,10 @@
     "privacy",
     "browsingData",
     "notifications",
-    "tabs"
+    "tabs",
+    "cookies",
+    "<all_urls>",
+    "storage"
   ],
   "background": {
     "scripts": [
