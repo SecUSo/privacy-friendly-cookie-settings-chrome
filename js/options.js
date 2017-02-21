@@ -48,8 +48,13 @@ $(document).ready(function () {
     getThirdpartySetting(function (response) {
         var thirdPartyCookieAllowed = response.thirdparty;
         if (thirdPartyCookieAllowed !== undefined){
-            if (thirdPartyCookieAllowed)
-                $("#thirdPartyGeneral").attr("src","img/checked32.png");
+            console.log(thirdPartyCookieAllowed);
+            if (thirdPartyCookieAllowed) {
+                $("#thirdPartyGeneral").attr("src", "img/not_checked32.png");
+            }
+            else {
+                $("#thirdPartyGeneral").attr("src", "img/checked32.png");
+            }
         }
     });
     getCookieLivetimeSetting(function (response) {
@@ -64,10 +69,10 @@ $(document).ready(function () {
     $("#thirdPartyGeneral").click(function () {
         var src = $("#thirdPartyGeneral").attr("src");
         if (src.indexOf("not") === -1){
-            setThirdpartySetting(false);
+            setThirdpartySetting(true);
             $("#thirdPartyGeneral").attr("src","img/not_checked32.png");
         } else {
-            setThirdpartySetting(true);
+            setThirdpartySetting(false);
             $("#thirdPartyGeneral").attr("src","img/checked32.png");
         }
     });
@@ -86,11 +91,13 @@ $(document).ready(function () {
     historybtn.addEventListener("click",function () {
         var begin = new Date($("#beginSpec").val());
         var end = new Date($("#endSpec").val());
+        end.setDate(end.getDate()+1);
         chrome.history.search({
             "text": "",
             "startTime": begin.getTime(),
             "endTime": end.getTime()
         },function (results) {
+            console.log(results);
             var modHistory = {};
             for (var i = 0; i < results.length; i++){
                 var historyItem = results[i];
@@ -189,8 +196,12 @@ $(document).ready(function () {
         getThirdpartySetting(function (response) {
             var thirdPartyCookieAllowed = response.thirdparty;
             if (thirdPartyCookieAllowed !== undefined){
-                if (thirdPartyCookieAllowed)
-                    $("#thirdPartyGeneral").attr("src","img/checked32.png");
+                if (thirdPartyCookieAllowed) {
+                    $("#thirdPartyGeneral").attr("src", "img/not_checked32.png");
+                }
+                else {
+                    $("#thirdPartyGeneral").attr("src", "img/checked32.png");
+                }
             }
         });
         getCookieLivetimeSetting(function (response) {
@@ -216,5 +227,5 @@ $(document).ready(function () {
             }
         });
 
-    })
+    });
 });
