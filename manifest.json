@@ -17,6 +17,8 @@
     "notifications",
     "tabs",
     "cookies",
+    "webRequest",
+    "webRequestBlocking",
     "<all_urls>",
     "storage"
   ],
@@ -24,7 +26,7 @@
     "scripts": [
       "background.js"
     ],
-    "persistent": false
+    "persistent": true
   },
   "browser_action": {
     "default_icon": {

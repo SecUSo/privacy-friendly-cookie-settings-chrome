@@ -12,10 +12,37 @@
 <a href="options.html" target="_blank"><span class="glyphicon glyphicon-cog"></span> Optionsseite öffnen</a>
 <h3>Einstellungen für Seite <span id="side_url"></span></h3>
 <div class="panel panel-info">
-    <div class="panel-heading" data-toggle="collapse" data-target="#collapse_livetime" aria-expanded="true" aria-controls="collapse_livetime" >
+    <div class="panel-heading" data-toggle="collapse" data-target="#collapse_thirdparty" aria-expanded="true" aria-controls="collapse_thirdparty">
+        <h3 class="panel-title">Drittanbieter Cookies von dieser Seite blockieren</h3>
+    </div>
+    <div class="panel-body" id="collapse_thirdparty">
+        <img src="img/not_checked32.png" width="32" height="32" id="thirdparty">
+        <button class="btn btn-default btn-xs btn-block" data-toggle="collapse" data-target="#pro_thirdparty" aria-expanded="false" aria-controls="pro_thirdparty">
+            <span class="glyphicon glyphicon-chevron-down pull-left"></span>Vorteile
+        </button>
+        <p class="well collapse" id="pro_thirdparty">
+            Wenn Sie diese Option aktivieren verhindern Sie das Setzen von Drittanbieter Cookies von dieser Seite.
+            Mit dieser Option können Sie Seiten denen Sie vertrauen oder wenn Sie es temporär brauchen die Drittanbieter
+            Cookies aktivieren. Es ist empfohlen die Drittanbieter Cookies allgemein zu blockieren und über diese Option
+            für manche Seiten die Option zu deaktivieren. <br>
+            <b>Hinweis:</b> Damit diese Funktionalität benutzt werden kann muss im Browser das Setzen von Drittanbieter Cookies
+            erlaubt sein. Die Erweiterung übernimmt das Blockieren von Drittanbieter Cookies.
+        </p>
+        <button class="btn btn-default btn-xs btn-block" data-toggle="collapse" data-target="#con_thirdparty" aria-expanded="false" aria-controls="con_thirdparty">
+            <span class="glyphicon glyphicon-chevron-down pull-left"></span>Nachteile
+        </button>
+        <p class="well collapse" id="con_thirdparty">
+            Wenn diese Option aktiviert ist also die Drittanbieter Cookies blockiert werden könnte es sein das manche
+            Funktionalitäten von Webseiten nicht funktionieren. Das kann zum Beispiel das bezahlen mit PayPal betreffen
+            oder das Reservieren/Kaufen von Karten für Veranstaltungen.
+        </p>
+    </div>
+</div>
+<div class="panel panel-info">
+    <div class="panel-heading" data-toggle="collapse" data-target="#collapse_livetime" aria-expanded="false" aria-controls="collapse_livetime" >
         <h3 class="panel-title">Speichern von Cookies</h3>
     </div>
-    <div class="panel-body" id="collapse_livetime">
+    <div class="panel-body collapse" id="collapse_livetime">
         <label>
             <select class="form-control" id="cookieLivetime">
                 <option>Immer</option>
