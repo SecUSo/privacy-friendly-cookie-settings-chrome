@@ -54,11 +54,23 @@ $(document).ready(function () {
         else {
             $("#logincookies").attr("src","img/not_checked32.png");
         }
-        if (items["thirdparty"] && items["thirdparty"][url]){
-            $("#thirdparty").attr("src","img/checked32.png");
+        if (items["thirdparty"]){
+            if (items["thirdparty"][url]) {
+                $("#thirdparty").attr("src", "img/checked32.png");
+            }
+            else if (items["thirdparty"][url] === false){ // items["thirdparty"][url] could be undefined
+                $("#thirdparty").attr("src", "img/not_checked32.png");
+            }
+            else {
+                if (items["thirdparty"]["default"]){
+                    $("#thirdparty").attr("src", "img/checked32.png");
+                } else {
+                    $("#thirdparty").attr("src", "img/not_checked32.png");
+                }
+            }
         }
-        else {
-            $("#thirdparty").attr("src","img/not_checked32.png");
+        else if (items["thirdparty"] && items["thirdparty"]["defualt"]){
+            $("#thirdparty").attr("src","img/checked32.png");
         }
     });
     $("#logincookies").click(function () {
@@ -85,7 +97,7 @@ $(document).ready(function () {
             if (!items.hasOwnProperty("thirdparty")){
                 items = {thirdparty : {}};
             } else {
-                settings = items["thirdparty"][url] || false;
+                settings = items["thirdparty"][url] || items["thirdparty"]["default"];
             }
             if (settings){
                 items["thirdparty"][url] = false;
@@ -97,6 +109,7 @@ $(document).ready(function () {
             }
             console.log(items);
             chrome.storage.sync.set(items);
+            chrome.runtime.sendMessage({updateSettings: true});
         });
     });
 });

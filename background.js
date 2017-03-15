@@ -1,8 +1,8 @@
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
         if (request.getThirdparty){
-            chrome.privacy.websites.thirdPartyCookiesAllowed.get({},function (details) {
-                sendResponse({thirdparty : details.value});
+            chrome.storage.sync.get("thirdparty",function (items) {
+                sendResponse({thirdparty: !items["thirdparty"]["default"]});
             });
             return true;
         }
@@ -27,7 +27,10 @@ chrome.runtime.onMessage.addListener(
         }
         if (request.setThirdparty){
             var thirdparty = request.setThirdparty.value;
-            chrome.privacy.websites.thirdPartyCookiesAllowed.set({value:thirdparty});
+            chrome.storage.sync.get("thirdparty",function (items) {
+                items["thirdparty"]["default"] = !thirdparty;
+                chrome.storage.sync.set(items,updateSettings);
+            });
             return true;
         }
         if (request.setCookieLivetime){
@@ -39,14 +42,22 @@ chrome.runtime.onMessage.addListener(
             });
             return true;
         }
+        if (request.updateSettings){
+            updateSettings();
+            return true;
+        }
     });
 
 var settings = {};
-
-chrome.runtime.onStartup.addListener(function () {
+updateSettings();
+function updateSettings() {
     chrome.storage.sync.get("thirdparty",function (items) {
         settings = items;
-    })
+    });
+}
+chrome.runtime.onStartup.addListener(updateSettings);
+chrome.runtime.onInstalled.addListener(function () {
+    chrome.privacy.websites.thirdPartyCookiesAllowed.set({value: true});
 });
 
 function getDomainFromURLString(url) {
@@ -60,22 +71,34 @@ function getDomainFromURLString(url) {
     return domain;
 }
 
+var tabs = {};
+chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+    if (changeInfo.url){
+        tabs[tabId] = getDomainFromURLString(changeInfo.url);
+    }
+});
+
+var url;
 chrome.webRequest.onHeadersReceived.addListener(
     function (details) {
-        var url = getDomainFromURLString(details.url);
+        if (details.type === "main_frame"){
+            url = getDomainFromURLString(details.url);
+        }
         var headers = [];
         var block = false;
-        if (settings.thirdparty && settings.thirdparty.hasOwnProperty(url)) {
-            block = settings.thirdparty[url] || false;
-            console.log(block);
+        if (settings.thirdparty) {
+            if (settings.thirdparty.hasOwnProperty(url)) {
+                block = settings.thirdparty[url] || false;
+            } else {
+                block = settings.thirdparty.default || false;
+            }
         }
         if (block) {
             for (var i = 0; i < details.responseHeaders.length; i++) {
                 if (details.responseHeaders[i].name !== "Set-Cookie") {
                     headers.push(details.responseHeaders[i]);
                 } else {
-                    var val = details.responseHeaders[i].value;
-                    if (val.indexOf(url) != -1) {
+                    if (url === getDomainFromURLString(details.url)) {
                         headers.push(details.responseHeaders[i]);
                     }
                 }
