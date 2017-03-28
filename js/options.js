@@ -45,6 +45,11 @@ function setCookieLivetimeSetting(pattern,value) {
 }
 
 $(document).ready(function () {
+    var template_glob;
+    $.get("templates/SpecificsidePanelTemplate.mst",function (template) {
+        Mustache.parse(template);
+        template_glob = template;
+    });
     getThirdpartySetting(function (response) {
         var thirdPartyCookieAllowed = response.thirdparty;
         if (thirdPartyCookieAllowed !== undefined){
@@ -75,11 +80,6 @@ $(document).ready(function () {
             setThirdpartySetting(false);
             $("#thirdPartyGeneral").attr("src","img/checked32.png");
         }
-    });
-    $("#cookieLivetimeSpecific").on("change",function (e) {
-        var url = $("#site").text();
-        url = url.indexOf("http") === -1 ? "*://" + url + "/*" : url + "/*";
-        setCookieLivetimeSetting(url,this.selectedIndex);
     });
     var historybtn = document.getElementById("historybtn");
     var startofyear = new Date();
@@ -112,60 +112,117 @@ $(document).ready(function () {
             keys.sort(function (a, b) {
                 return modHistory[b] - modHistory[a];
             });
-            var tabofSites = $("#tabofSites").find("> tbody");
+            var tabofSites = $("#tabofSites").find("> div.panel-body > div.panel-group");
             var requestetAmount = $("#amountOfSites").val();
-            tabofSites.find("tr").remove();
+            tabofSites.find("div").remove();
+
             for (var j = 0; j < keys.length && j < requestetAmount; j++){
-                tabofSites.append("<tr><td>" + keys[j] + "</td> <td><button class=\"btn btn-primary specbtn\">Einstellungen</button></td></tr>")
+                var rendered = Mustache.render(template_glob,{heading:"<span class='col-md-4'>" + keys[j] + "</span> <span class='col-md-4'><button\
+                        class=\"btn btn-primary specbtn\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#specSetting" + j +
+                "\" aria-expanded=\"false\" aria-controls=\"specSetting" + j + "\">Einstellungen</button></span>",
+                    panelbody:"<div class='panel-collapse collapse' role='tabpanel' id=\"specSetting"+ j +"\">"});
+                tabofSites.append(rendered);
             }
+            $(".cookieLivetimeSpecific").on("change",function (e) {
+                var url = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.childNodes[1].childNodes[1].childNodes[1].textContent;
+                url = url.indexOf("http") === -1 ? "*://" + url + "/*" : url + "/*";
+                setCookieLivetimeSetting(url,this.selectedIndex);
+            });
+            $(".logincookies").click(function (e) {
+                var src = $(".logincookies").attr("src");
+                var url = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.childNodes[1].childNodes[1].childNodes[1].textContent;
+                var obj = {};
+                console.log("Klick");
+                console.log(url);
+                chrome.storage.sync.get(url,function (items) {
+                    if (src.indexOf("not") === -1){
+                        obj[url] = false;
+                        chrome.storage.sync.set(obj);
+                        $(".logincookies").attr("src","img/not_checked32.png");
+                    } else {
+                        obj[url] = true;
+                        chrome.storage.sync.set(obj);
+                        $(".logincookies").attr("src","img/checked32.png");
+                    }
+                });
+
+            });
             $(".specbtn").click(function (e) {
-                var domain = e.target.parentNode.parentNode.firstChild.textContent;
-                $("#site").text(domain);
+                var domain = e.target.parentNode.parentNode.childNodes[1].textContent;
                 chrome.storage.sync.get(domain,function (items) {
                     if (chrome.runtime.lastError){
                         var obj = {};
                         obj[domain] = false;
                         chrome.storage.sync.set(obj);
-                        $("#logincookies").attr("src","img/not_checked32.png");
+                        $(".logincookies").attr("src","img/not_checked32.png");
                     } else {
                         if (items[domain]){
-                            $("#logincookies").attr("src","img/checked32.png");
+                            $(".logincookies").attr("src","img/checked32.png");
                         } else{
-                            $("#logincookies").attr("src","img/not_checked32.png");
+                            $(".logincookies").attr("src","img/not_checked32.png");
                         }
                     }
                 });
                 getCookieLivetimeSetting(function (response) {
-                    document.getElementById("cookieLivetimeSpecific").selectedIndex = response.cookieLivetime;
-                    $("#settings").show();
+                    var selector = ".cookieLivetimeSpecific :nth-child("+ (response.cookieLivetime+1) +")";
+                    $(selector).prop('selected',true);
                 },domain);
             });
         });
     });
     $("#addManuellSite").click(function () {
         var site = $("#manSiteInput").val();
-        var tabofSites = $("#tabofSites").find("> tbody");
-        tabofSites.append("<tr><td>" + site + "</td> <td><button class=\"btn btn-primary specbtn\">Einstellungen</button></td></tr>");
+        var tabofSites = $("#tabofSites").find("> div.panel-body > div.panel-group");
+        var amount = $(".cookieLivetimeSpecific").length + 1;
+        var rendered = Mustache.render(template_glob,{heading:"<span class='col-md-4'>" + site + "</span> <span class='col-md-4'><button\
+                        class=\"btn btn-primary specbtn\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#specSetting" + amount +
+        "\" aria-expanded=\"false\" aria-controls=\"specSetting" + amount + "\">Einstellungen</button></span>",
+            panelbody:"<div class='panel-collapse collapse' role='tabpanel' id=\"specSetting"+ amount +"\">"});
+        tabofSites.append(rendered);
+        $(".cookieLivetimeSpecific").on("change",function (e) {
+            var url = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.childNodes[1].childNodes[1].childNodes[1].textContent;
+            url = url.indexOf("http") === -1 ? "*://" + url + "/*" : url + "/*";
+            setCookieLivetimeSetting(url,this.selectedIndex);
+        });
+        $(".logincookies").click(function (e) {
+            var src = $(".logincookies").attr("src");
+            var url = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.childNodes[1].childNodes[1].childNodes[1].textContent;
+            var obj = {};
+            console.log("Klick");
+            console.log(url);
+            chrome.storage.sync.get(url,function (items) {
+                if (src.indexOf("not") === -1){
+                    obj[url] = false;
+                    chrome.storage.sync.set(obj);
+                    $(".logincookies").attr("src","img/not_checked32.png");
+                } else {
+                    obj[url] = true;
+                    chrome.storage.sync.set(obj);
+                    $(".logincookies").attr("src","img/checked32.png");
+                }
+            });
+
+        });
         $(".specbtn").click(function (e) {
-            var domain = e.target.parentNode.parentNode.firstChild.textContent;
+            var domain = e.target.parentNode.parentNode.childNodes[1].textContent;
             chrome.storage.sync.get(domain,function (items) {
                 if (chrome.runtime.lastError){
                     var obj = {};
                     obj[domain] = false;
                     chrome.storage.sync.set(obj);
-                    $("#logincookies").attr("src","img/not_checked32.png");
+                    $(".logincookies").attr("src","img/not_checked32.png");
                 } else {
                     if (items[domain]){
-                        $("#logincookies").attr("src","img/checked32.png");
+                        $(".logincookies").attr("src","img/checked32.png");
                     } else{
-                        $("#logincookies").attr("src","img/not_checked32.png");
+                        $(".logincookies").attr("src","img/not_checked32.png");
                     }
                 }
             });
             $("#site").text(domain);
             getCookieLivetimeSetting(function (response) {
-                document.getElementById("cookieLivetimeSpecific").selectedIndex = response.cookieLivetime;
-                $("#settings").show();
+                var selector = ".cookieLivetimeSpecific :nth-child("+ (response.cookieLivetime+1) +")";
+                $(selector).prop('selected',true);
             },domain);
         });
     });
@@ -210,22 +267,5 @@ $(document).ready(function () {
                 document.getElementById('cookieLivetimeGeneral').selectedIndex = cookieLiveTime;
             }
         });
-    });
-    $("#logincookies").click(function () {
-        var src = $("#logincookies").attr("src");
-        var url = $("#site").text();
-        var obj = {};
-        chrome.storage.sync.get(url,function (items) {
-            if (src.indexOf("not") === -1){
-                obj[url] = false;
-                chrome.storage.sync.set(obj);
-                $("#logincookies").attr("src","img/not_checked32.png");
-            } else {
-                obj[url] = true;
-                chrome.storage.sync.set(obj);
-                $("#logincookies").attr("src","img/checked32.png");
-            }
-        });
-
     });
 });

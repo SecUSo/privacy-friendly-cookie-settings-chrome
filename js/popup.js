@@ -97,7 +97,7 @@ $(document).ready(function () {
             if (!items.hasOwnProperty("thirdparty")){
                 items = {thirdparty : {}};
             } else {
-                settings = items["thirdparty"][url] || items["thirdparty"]["default"];
+                settings = items["thirdparty"][url] || false;
             }
             if (settings){
                 items["thirdparty"][url] = false;
@@ -107,7 +107,6 @@ $(document).ready(function () {
                 items["thirdparty"][url] = true;
                 $("#thirdparty").attr("src","img/checked32.png");
             }
-            console.log(items);
             chrome.storage.sync.set(items);
             chrome.runtime.sendMessage({updateSettings: true});
         });

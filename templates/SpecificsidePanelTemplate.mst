@@ -1,0 +1,78 @@
+<div class='panel-default panel'>
+    <div class='panel-heading' role='tab'>
+        <div class='row'>
+            {{{heading}}}
+        </div>
+    </div>
+    {{{panelbody}}}
+        <div class='panel-body'>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" style="display: inline-block;padding-right: 20%">Speichern von
+                            Cookies</h3>
+                        <label>
+                            <select class="form-control cookieLivetimeSpecific">
+                                <option selected="selected">Immer</option>
+                                <option>Bis der Browser geschlossen wird</option>
+                                <option>Niemals</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <h4>Vorteile:</h4>
+                    <p>
+                        Mit dieser Option bestimmen sie wie lange ein Cookie auf Ihrem Computer gespeichert werden soll.<br/>
+                        <b>Immer: </b> Die Cookies werden nie gelöscht.<br/>
+                        <b>Bis der Browser geschlossen wird: </b> Wenn Sie den Browser schließen werden alle Cookies
+                        gelöscht.<br/>
+                        <b>Niemals: </b> Es werden keine Cookies gespeichert auf Ihrem Computer.<br/>
+                    </p>
+                    <h4>Nachteile:</h4>
+                    <p>
+                        Ein gespeicherte Cookie kann von Ihrem Computer ausgelesen werden und so können von einer
+                        Website gespeicherte
+                        Informationen an andere Personen gelangen. Es können auch Cookies die für den Login bei einer
+                        Website
+                        benutzt werden von Ihrem Computer gestohlen werden.
+                    </p>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" style="display: inline-block;padding-right: 20%">Login Cookies
+                            Speichern</h3>
+                        <img src="img/not_checked32.png" width="32" height="32" class="logincookies">
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <h4>Vorteile:</h4>
+                    <p>
+                        Ein Login Cookie ist der Cookie der Sie Authentifiziert bei der Webseite bei der Sie sich
+                        bereits eingeloggt
+                        haben. Dadurch müssen Sie nicht immer wieder die login Daten eingeben um eine Webseite zu
+                        benutzen. Wenn Sie
+                        diese Option aktivieren werden die Cookies die dafür zuständig sind nicht gelöscht, durch
+                        aktionen die Sie
+                        mit dieser Erweiterung ausführen können. Dadurch haben Sie den Vorteil, dass Sie sich nicht
+                        immer wieder
+                        bei einer Webseite anmelden müssen und gleichzeitig keine anderen Daten durch Cookies über Sie
+                        gesammelt
+                        werden können.<br>
+                        <b>Hinweis: </b> Diese Option ist nur für manche Webseiten verfügbar.
+                    </p>
+                    <h4>Nachteile:</h4>
+                    <p>
+                        Wenn Sie diese Option aktivieren bleiben die Cookies, die Sie auf einer Webseite nach dem
+                        anmelden Authentisieren,
+                        auf Ihrem System erhalten. Dadurch könnten Dritte die Ihren Computer benutzen, sich ohne
+                        Anmeldedaten, zugang
+                        zu Ihren Daten verschaffen die auf Webseiten hinterlegt sind, die Sie benutzen.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
