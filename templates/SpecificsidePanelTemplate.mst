@@ -9,6 +9,29 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="panel-heading">
+                        <h3 class="panel-title" style="display: inline-block;padding-right: 20%">Drittanbieter Cookies von dieser Seite blockieren</h3>
+                        <img src="img/not_checked32.png" width="32" height="32" class="thirdpartyspecific">
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <h4>Vorteile:</h4>
+                    <p>
+                        Wenn Sie diese Option aktivieren verhindern Sie das Setzen von Drittanbieter Cookies von dieser Seite.
+                        Mit dieser Option können Sie Seiten denen Sie vertrauen oder wenn Sie es temporär brauchen die Drittanbieter
+                        Cookies aktivieren. Es ist empfohlen die Drittanbieter Cookies allgemein zu blockieren und über diese Option
+                        für manche Seiten die Option zu deaktivieren. <br>
+                    </p>
+                    <h4>Nachteile:</h4>
+                    <p>
+                        Wenn diese Option aktiviert ist also die Drittanbieter Cookies blockiert werden könnte es sein das manche
+                        Funktionalitäten von Webseiten nicht funktionieren. Das kann zum Beispiel das bezahlen mit PayPal betreffen
+                        oder das Reservieren/Kaufen von Karten für Veranstaltungen.
+                    </p>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-heading">
                         <h3 class="panel-title" style="display: inline-block;padding-right: 20%">Speichern von
                             Cookies</h3>
                         <label>

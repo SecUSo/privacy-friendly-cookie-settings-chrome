@@ -36,6 +36,17 @@ chrome.runtime.onMessage.addListener(
         if (request.setCookieLivetime){
             var cookielivetime = request.setCookieLivetime.value;
             var pattern = request.setCookieLivetime.pattern;
+            chrome.storage.sync.get("logincookies",function (items) {
+                if (pattern === "<all_urls>"){
+                    items.logincookies.default = cookielivetime;
+                } else {
+                    var url = getDomainFromURLString(pattern);
+                    if (items.logincookies.hasOwnProperty(url)){
+                        items.logincookies[url]["setting"]["login"] = cookielivetime;
+                    }
+                }
+            });
+
             chrome.contentSettings.cookies.set({
                 primaryPattern : pattern,
                 setting : cookielivetime
@@ -48,6 +59,18 @@ chrome.runtime.onMessage.addListener(
         }
     });
 
+function cookieTransformation(cookie) {
+    var url = "http://" + cookie.domain;
+    delete cookie["hostOnly"];
+    delete cookie["session"];
+    cookie["url"] = url;
+    return cookie;
+}
+
+var loginCookieSites = [
+    "http://famkaefer.de"
+];
+
 var settings = {};
 updateSettings();
 function updateSettings() {
@@ -56,9 +79,169 @@ function updateSettings() {
     });
 }
 chrome.runtime.onStartup.addListener(updateSettings);
+chrome.runtime.onStartup.addListener(function () {
+    chrome.storage.sync.get("logincookies",function (items) {
+        for (entry in items.logincookies){
+            entry = items.logincookies[entry];
+            if (items.logincookies.default !== entry) {
+                var setting = entry.setting;
+                if (setting.login && items.logincookies.default === 1) {
+                    chrome.cookies.set(cookieTransformation(entry.cookie.value));
+                }
+            }
+        }
+    });
+});
 chrome.runtime.onInstalled.addListener(function () {
     chrome.privacy.websites.thirdPartyCookiesAllowed.set({value: true});
+    var logincookies = {
+        logincookies : {
+            default : 1,
+            "famkaefer.de" : {
+                url : "http://famkaefer.de",
+                cookie : {
+                    name : "PHPSESSID",
+                    value : {}
+                },
+                setting : {
+                    login : true,
+                }
+            },
+            "google.de": {
+                url: "http://google.de",
+                cookie: {
+                    name: "SSID",
+                    value: {}
+                },
+                setting: {
+                    login: true,
+                },
+            },
+            "youtube.com": {
+                url: "http://www.youtube.com",
+                cookie: {
+                    name: "SSID",
+                    value: {}
+                },
+                setting: {
+                    login: true,
+                }
+            },
+            "facebook.com": {
+                url: "http://facebook.com",
+                cookie: {
+                    name: "c_user",
+                    value: {}
+                },
+                setting: {
+                    login: true,
+                }
+            },
+            "google.com": {
+                url: "http://google.com",
+                cookie: {
+                    name: "SSID",
+                    value: {}
+                },
+                setting: {
+                    login: true,
+                }
+            },
+            "ebay.de": {
+                url: "http://ebay.de",
+                cookie: {
+                    name: "cid",
+                    value: {}
+                },
+                setting: {
+                    login: true,
+                }
+            },
+            "ebay-kleinanzeigen.de": {
+                url: "http://www.ebay-kleinanzeigen.de",
+                cookie: {
+                    name: "JSESSIONID",
+                    value: {}
+                },
+                setting: {
+                    login: true,
+                }
+            },
+            "t-online.de": {
+                url: "http://tipi.api.t-online.de",
+                cookie: {
+                    name: "JSESSIONID",
+                    value: {}
+                },
+                setting: {
+                    login: true,
+                }
+            },
+            "yahoo.com": {
+                url: "http://yahoo.com",
+                cookie: {
+                    name: "T",
+                    value: {}
+                },
+                setting: {
+                    login: true,
+                }
+            },
+            "instagram.com": {
+                url: "http://www.instagram.com",
+                cookie: {
+                    name: "sessionid",
+                    value: {}
+                },
+                setting: {
+                    login: true,
+                }
+            },
+            "twitter.com": {
+                url: "http://twitter.com",
+                cookie: {
+                    name: "auth_token",
+                    value: {}
+                },
+                setting: {
+                    login: true,
+                }
+            },
+            "spiegel.de": {
+                url: "http://spiegel.de",
+                cookie: {
+                    name: "boSession",
+                    value: {}
+                },
+                setting: {
+                    login: true,
+                }
+            },
+            "bild.de": {
+                url: "http://www.bild.de",
+                cookie: {
+                    name: "JSESSIONID",
+                    value: {}
+                },
+                setting: {
+                    login: true,
+                }
+            },
+            "mobile.de": {
+                url: "http://mobile.de",
+                cookie: {
+                    name: "vi",
+                    value: {}
+                },
+                setting: {
+                    login: true,
+                }
+            },
+        }
+    };
+    chrome.storage.sync.set(logincookies);
 });
+
 
 function getDomainFromURLString(url) {
     var domain;
@@ -71,11 +254,23 @@ function getDomainFromURLString(url) {
     return domain;
 }
 
-var tabs = {};
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
-    if (changeInfo.url){
-        tabs[tabId] = getDomainFromURLString(changeInfo.url);
-    }
+    chrome.storage.sync.get("logincookies",function (items) {
+        var url = getDomainFromURLString(tab.url);
+        console.log(url);
+        if (items.logincookies.hasOwnProperty(url)){
+            if (items.logincookies[url]["setting"]["login"]) {
+                chrome.cookies.getAll({url: tab.url}, function (cookies) {
+                    for (cookie of cookies) {
+                        if (cookie.name === items.logincookies[url]["cookie"]["name"]) {
+                            items.logincookies[url]["cookie"]["value"] = cookie;
+                        }
+                    }
+                    chrome.storage.sync.set(items);
+                });
+            }
+        }
+    });
 });
 
 var url;
