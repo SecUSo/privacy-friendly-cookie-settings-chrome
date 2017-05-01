@@ -67,10 +67,6 @@ function cookieTransformation(cookie) {
     return cookie;
 }
 
-var loginCookieSites = [
-    "http://famkaefer.de"
-];
-
 var settings = {};
 updateSettings();
 function updateSettings() {
