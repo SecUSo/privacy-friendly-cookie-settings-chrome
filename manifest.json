@@ -18,7 +18,8 @@
     "webRequest",
     "webRequestBlocking",
     "<all_urls>",
-    "storage"
+    "storage",
+    "privacy"
   ],
   "background": {
     "scripts": [

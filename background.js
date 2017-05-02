@@ -88,8 +88,9 @@ chrome.runtime.onStartup.addListener(function () {
         }
     });
 });
-chrome.runtime.onInstalled.addListener(function () {
+chrome.runtime.onInstalled.addListener(function (details) {
     chrome.privacy.websites.thirdPartyCookiesAllowed.set({value: true});
+    chrome.storage.sync.set({thirdparty:{default: false}});
     var logincookies = {
         logincookies : {
             default : 1,
@@ -238,7 +239,6 @@ chrome.runtime.onInstalled.addListener(function () {
     chrome.storage.sync.set(logincookies);
 });
 
-
 function getDomainFromURLString(url) {
     var domain;
     if (url.indexOf("://") > -1){
@@ -253,7 +253,6 @@ function getDomainFromURLString(url) {
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     chrome.storage.sync.get("logincookies",function (items) {
         var url = getDomainFromURLString(tab.url);
-        console.log(url);
         if (items.logincookies.hasOwnProperty(url)){
             if (items.logincookies[url]["setting"]["login"]) {
                 chrome.cookies.getAll({url: tab.url}, function (cookies) {
@@ -264,6 +263,15 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
                     }
                     chrome.storage.sync.set(items);
                 });
+            }
+        }
+        for (entry in items.logincookies){
+            entry = items.logincookies[entry];
+            if (items.logincookies.default !== entry) {
+                var setting = entry.setting;
+                if (setting.login && items.logincookies.default === 1) {
+                    chrome.cookies.set(cookieTransformation(entry.cookie.value));
+                }
             }
         }
     });

@@ -9,22 +9,22 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="panel-heading">
-                        <h3 class="panel-title" style="display: inline-block;padding-right: 20%">Drittanbieter Cookies von dieser Seite blockieren</h3>
+                        <h3 class="panel-title" style="display: inline-block;padding-right: 20%">Drittanbieter-Cookies von dieser Seite blockieren</h3>
                         <img src="img/not_checked32.png" width="32" height="32" class="thirdpartyspecific">
                     </div>
                 </div>
                 <div class="panel-body">
                     <h4>Vorteile:</h4>
                     <p>
-                        Wenn Sie diese Option aktivieren verhindern Sie das Setzen von Drittanbieter Cookies von dieser Seite.
-                        Mit dieser Option können Sie Seiten denen Sie vertrauen oder wenn Sie es temporär brauchen die Drittanbieter
-                        Cookies aktivieren. Es ist empfohlen die Drittanbieter Cookies allgemein zu blockieren und über diese Option
-                        für manche Seiten die Option zu deaktivieren. <br>
+                        Wenn Sie diese Option aktivieren, verhindern Sie das Setzen von Drittanbieter Cookies von dieser Seite.
+                        Mit dieser Option können Sie Seiten, denen Sie vertrauen oder wenn Sie es temporär brauchen, die Drittanbieter-
+                        Cookies aktivieren. Es ist empfohlen, die Drittanbieter-Cookies allgemein zu blockieren und über diese Option
+                        für manche Seiten die Blockade zu deaktivieren. <br>
                     </p>
                     <h4>Nachteile:</h4>
                     <p>
-                        Wenn diese Option aktiviert ist also die Drittanbieter Cookies blockiert werden könnte es sein das manche
-                        Funktionalitäten von Webseiten nicht funktionieren. Das kann zum Beispiel das bezahlen mit PayPal betreffen
+                        Wenn diese Option aktiviert ist, also die Drittanbieter-Cookies blockiert werden, könnte es sein, dass manche
+                        Funktionalitäten von Webseiten nicht funktionieren. Das kann zum Beispiel das Bezahlen mit PayPal betreffen
                         oder das Reservieren/Kaufen von Karten für Veranstaltungen.
                     </p>
                 </div>
@@ -46,41 +46,39 @@
                 <div class="panel-body">
                     <h4>Vorteile:</h4>
                     <p>
-                        Mit dieser Option bestimmen sie wie lange ein Cookie auf Ihrem Computer gespeichert werden soll.<br/>
+                        Mit dieser Option bestimmen Sie, wie lange ein Cookie auf Ihrem Computer gespeichert werden soll.<br/>
                         <b>Immer: </b> Die Cookies werden nie gelöscht.<br/>
                         <b>Bis der Browser geschlossen wird: </b> Wenn Sie den Browser schließen werden alle Cookies
                         gelöscht.<br/>
-                        <b>Niemals: </b> Es werden keine Cookies gespeichert auf Ihrem Computer.<br/>
+                        <b>Niemals: </b> Es werden keine Cookies auf Ihrem Computer gespeichert.<br/>
                     </p>
                     <h4>Nachteile:</h4>
                     <p>
-                        Ein gespeicherte Cookie kann von Ihrem Computer ausgelesen werden und so können von einer
+                        Ein gespeicherter Cookie kann von Ihrem Computer ausgelesen werden und so können von einer
                         Website gespeicherte
-                        Informationen an andere Personen gelangen. Es können auch Cookies die für den Login bei einer
+                        Informationen an andere Personen gelangen. Es können auch Cookies, die für den Login bei einer
                         Website
-                        benutzt werden von Ihrem Computer gestohlen werden.
+                        benutzt werden, von Ihrem Computer gestohlen werden.
                     </p>
                 </div>
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="panel-heading">
-                        <h3 class="panel-title" style="display: inline-block;padding-right: 20%">Login Cookies
-                            Speichern</h3>
+                        <h3 class="panel-title" style="display: inline-block;padding-right: 20%">Login-Cookies
+                            speichern</h3>
                         <img src="img/not_checked32.png" width="32" height="32" class="logincookies">
                     </div>
                 </div>
                 <div class="panel-body">
                     <h4>Vorteile:</h4>
                     <p>
-                        Ein Login Cookie ist der Cookie der Sie Authentifiziert bei der Webseite bei der Sie sich
+                        Ein Login-Cookie ist der Cookie, der Sie bei der Webseite authentifiziert, bei der Sie sich
                         bereits eingeloggt
-                        haben. Dadurch müssen Sie nicht immer wieder die login Daten eingeben um eine Webseite zu
+                        haben. Dadurch müssen Sie nicht immer wieder die Logindaten eingeben, um eine Webseite zu
                         benutzen. Wenn Sie
-                        diese Option aktivieren werden die Cookies die dafür zuständig sind nicht gelöscht, durch
-                        aktionen die Sie
-                        mit dieser Erweiterung ausführen können. Dadurch haben Sie den Vorteil, dass Sie sich nicht
-                        immer wieder
+                        diese Option aktivieren, werden die Cookies die dafür zuständig sind nicht durch diese Erweiterung gelöscht. 
+						Dadurch haben Sie den Vorteil, dass Sie sich nicht immer wieder
                         bei einer Webseite anmelden müssen und gleichzeitig keine anderen Daten durch Cookies über Sie
                         gesammelt
                         werden können.<br>
@@ -89,10 +87,10 @@
                     <h4>Nachteile:</h4>
                     <p>
                         Wenn Sie diese Option aktivieren bleiben die Cookies, die Sie auf einer Webseite nach dem
-                        anmelden Authentisieren,
-                        auf Ihrem System erhalten. Dadurch könnten Dritte die Ihren Computer benutzen, sich ohne
-                        Anmeldedaten, zugang
-                        zu Ihren Daten verschaffen die auf Webseiten hinterlegt sind, die Sie benutzen.
+                        anmelden authentifizieren,
+                        auf Ihrem System erhalten. Dadurch könnten Dritte, die Ihren Computer benutzen, sich ohne
+                        Anmeldedaten Zugang
+                        zu Ihren Daten verschaffen, die auf Webseiten hinterlegt sind, die Sie benutzen.
                     </p>
                 </div>
             </div>

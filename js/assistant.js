@@ -9,7 +9,6 @@ function nextQuestion(jumpTo) {
     $(id).hide();
     question = jumpTo || question+1;
     id = "#q"+question;
-    console.log(id);
     $(id).show();
 }
 
@@ -81,7 +80,7 @@ $(document).ready(function () {
     });
     $("#q6selfdefined").click(function () {
         nextQuestion();
-        timeperiod = $("#q6selfdefinedvalue").val();
+        timeperiod = new Date($("#q6selfdefinedvalue").val());
     });
 
     var sitestodisplay = 10;

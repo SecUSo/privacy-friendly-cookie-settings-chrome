@@ -61,7 +61,6 @@ $(document).ready(function () {
     getThirdpartySetting(function (response) {
         var thirdPartyCookieAllowed = response.thirdparty;
         if (thirdPartyCookieAllowed !== undefined){
-            console.log(thirdPartyCookieAllowed);
             if (thirdPartyCookieAllowed) {
                 $("#thirdPartyGeneral").attr("src", "img/not_checked32.png");
             }
@@ -139,13 +138,13 @@ $(document).ready(function () {
                 var src = $(".logincookies").attr("src");
                 var url = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.childNodes[1].childNodes[1].childNodes[1].textContent;
                 var obj = {};
-                chrome.storage.sync.get(url,function (items) {
+                chrome.storage.sync.get("logincookies",function (items) {
                     if (src.indexOf("not") === -1){
-                        obj[url] = false;
+                        items.logincookies[url]["setting"] = false;
                         chrome.storage.sync.set(obj);
                         $(".logincookies").attr("src","img/not_checked32.png");
                     } else {
-                        obj[url] = true;
+                        items.logincookies[url]["setting"] = true;
                         chrome.storage.sync.set(obj);
                         $(".logincookies").attr("src","img/checked32.png");
                     }
@@ -234,15 +233,13 @@ $(document).ready(function () {
             var src = $(".logincookies").attr("src");
             var url = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.childNodes[1].childNodes[1].childNodes[1].textContent;
             var obj = {};
-            console.log("Klick");
-            console.log(url);
-            chrome.storage.sync.get(url,function (items) {
+            chrome.storage.sync.get("logincookies",function (items) {
                 if (src.indexOf("not") === -1){
-                    obj[url] = false;
+                    items.logincookies[url]["setting"] = false;
                     chrome.storage.sync.set(obj);
                     $(".logincookies").attr("src","img/not_checked32.png");
                 } else {
-                    obj[url] = true;
+                    items.logincookies[url]["setting"] = true;
                     chrome.storage.sync.set(obj);
                     $(".logincookies").attr("src","img/checked32.png");
                 }
@@ -315,7 +312,7 @@ $(document).ready(function () {
     });
     $("#removeAllCookies").click(function () {
         chrome.browsingData.removeCookies({"since":0},function () {
-            console.log("Hallo");
+            console.log("Ging sonst nicht");
         });
         chrome.notifications.create("removesuccess",{
             type: "basic",

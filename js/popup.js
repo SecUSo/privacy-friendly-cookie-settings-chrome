@@ -77,18 +77,17 @@ $(document).ready(function () {
         var src = $("#logincookies").attr("src");
         var url = $("#side_url").text();
         var obj = {};
-        chrome.storage.sync.get(url,function (items) {
+        chrome.storage.sync.get("logincookies",function (items) {
             if (src.indexOf("not") === -1){
-                obj[url] = false;
+                items.logincookies[url]["setting"] = false;
                 chrome.storage.sync.set(obj);
                 $("#logincookies").attr("src","img/not_checked32.png");
             } else {
-                obj[url] = true;
+                items.logincookies[url]["setting"] = true;
                 chrome.storage.sync.set(obj);
                 $("#logincookies").attr("src","img/checked32.png");
             }
         });
-
     });
     $("#thirdparty").click(function () {
         var url = $("#side_url").text();
