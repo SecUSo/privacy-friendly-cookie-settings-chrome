@@ -29,6 +29,7 @@ chrome.runtime.onMessage.addListener(
             var thirdparty = request.setThirdparty.value;
             chrome.storage.sync.get("thirdparty",function (items) {
                 items["thirdparty"]["default"] = !thirdparty;
+				chrome.privacy.websites.thirdPartyCookiesAllowed.set({value: thirdparty});
                 chrome.storage.sync.set(items,updateSettings);
             });
             return true;
@@ -58,6 +59,15 @@ chrome.runtime.onMessage.addListener(
             return true;
         }
     });
+function getDomain(url) {
+	var split;
+	var domain;
+	split = url.split(".");
+	if(split.length > 2){
+      domain = split[split.length-2] + "." + split[split.length-1];
+    }
+	return domain;
+}
 
 function cookieTransformation(cookie) {
     var url = "http://" + cookie.domain;
@@ -278,35 +288,35 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 });
 
 var url;
+var maindomain;
 chrome.webRequest.onHeadersReceived.addListener(
     function (details) {
-        if (details.type === "main_frame"){
-            url = getDomainFromURLString(details.url);
+		
+		var block = false;
+		 
+	    if (details.type === "main_frame"){
+			url = getDomainFromURLString(details.url);
+			maindomain = getDomain(url);
         }
-        var headers = [];
-        var block = false;
         if (settings.thirdparty) {
-            if (settings.thirdparty.hasOwnProperty(url)) {
-                block = settings.thirdparty[url] || false;
+			if (settings.thirdparty.hasOwnProperty(url)) {
+                block = settings.thirdparty[url];
+			
             } else {
-                block = settings.thirdparty.default || false;
+                block = settings.thirdparty.default;
             }
         }
-        if (block) {
-            for (var i = 0; i < details.responseHeaders.length; i++) {
-                if (details.responseHeaders[i].name !== "Set-Cookie") {
-                    headers.push(details.responseHeaders[i]);
-                } else {
-                    if (url === getDomainFromURLString(details.url)) {
-                        headers.push(details.responseHeaders[i]);
-                    }
-                }
-            }
-        } else {
-            headers = details.responseHeaders;
-        }
-        return {responseHeaders: headers};
-    },
-    {urls: ["<all_urls>"],
-    types: ["main_frame","sub_frame"]},
-    ["responseHeaders","blocking"]);
+		if(block){
+			if (details.responseHeaders) {
+				var cookieurl = getDomainFromURLString(details.url);
+				return {
+					responseHeaders: details.responseHeaders.filter((res) => {
+						return res.name.toLowerCase() !== 'set-cookie'|| maindomain === getDomain(cookieurl) ;
+					})
+				};
+			}
+		}
+    return {};
+	},
+{urls: ["<all_urls>"]},
+["responseHeaders","blocking"]);
