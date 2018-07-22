@@ -462,6 +462,7 @@ function addTexts(){
 
 	$("#generalSettingsTab").html(chrome.i18n.getMessage("settings"));
 	$("#websiteSpecificSettingsTab").html(chrome.i18n.getMessage("WebsiteSpecificSettings"));
+	$("#websiteSettings").html(chrome.i18n.getMessage("websiteSettings"));
 	$("#assistantTab").html(chrome.i18n.getMessage("AssistantTitle"));
 
 };
