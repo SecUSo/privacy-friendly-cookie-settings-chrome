@@ -251,7 +251,7 @@ $(document).ready(function () {
 			advantagesLoginCookies: chrome.i18n.getMessage("advantagesLoginCookies"),
 			disadvantagesLoginCookies: chrome.i18n.getMessage("disadvantagesLoginCookies"),
 			storeCookiesLoginTitle: chrome.i18n.getMessage("storeCookiesLoginTitle")
-		);
+		});
         tabofSites.append(rendered);
         $(".cookieLivetimeSpecific").on("change",function (e) {
             var url = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.childNodes[1].childNodes[1].childNodes[1].textContent;

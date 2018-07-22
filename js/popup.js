@@ -35,7 +35,7 @@ $(document).ready(function () {
         currentWindow: true
     },function (tabs) {
         var url = getDomainFromURLString(tabs[0]['url']);
-        $("#side_url").text(url);
+        $("#side_url").text(chrome.i18n.getMessage("websiteSettings")+ " " +url);
         getCookieLivetimeSetting(function (response) {
             var cookielivetime = response.cookieLivetime;
             if (cookielivetime !== undefined){
