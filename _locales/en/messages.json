@@ -1,0 +1,342 @@
+{
+  "extensionDescription": {
+	"message": "This add-on is designed to help users to select cookie settings for their browser.",
+	"description": "Description of the extension."
+  },
+  
+  "options": {
+    "message": "Your Cookie Settings",
+    "description": "Cookie options"
+  },
+
+  "optionsText": {
+    "message": "Here you can configure your personal cookie settings.",
+    "description": "Configure cookie settings"
+  },
+
+  "settings": {
+    "message": "General Settings",
+    "description": "General settings"
+  },
+
+  "settingsText": {
+    "message": "You can determine with the following options, how the cookies should be handled by your system. In order to make a decision, you should read through the advantages and disadvantages.",
+    "description": "General settings description"
+  },
+
+  "blockThirdParty": {
+    "message": "Block third-party cookies",
+    "description": "Block third-party cookies"
+  },
+
+  "AdvantagesTitle": {
+    "message": "Advantages:",
+    "description": "Advantages"
+  },
+
+  "AdvantagesText": {
+    "message": "Prevents the third parties from creating profiles of your surfing and shopping interests and using them for different purposes, such as showing you personalized ads on different websites or selling these profiles.",
+    "description": "Advantages description"
+  },
+
+  "DisadvantagesTitle": {
+    "message": "Disadvantages:",
+    "description": "Disadvantages"
+  },
+
+  "DisadvantagesText": {
+    "message": "In seldom cases this option can lead to problems in website presentation (e.g. with „Like“-buttons).",
+    "description": "Disadvantages description"
+  },
+
+  "AdvantagesLivetimeGeneral": {
+    "message": "With this option you can set for how long the cookies should be stored on your computer.<br/><b>Always: </b> The cookies will never be deleted.<br/><b>Until the browser is closed: </b>  when you close the browser, all cookies will be deleted.<br/><b>Never: </b> No cookies will be stored on your computer.<br/>",
+    "description": "Advantages of how long cookies should be stored"
+  },
+
+  "DisadvantagesLivetimeGeneral": {
+    "message": "A stored cookie can be read from your computer, and as such the data stored from a website can be leaked to other people. The cookies, used at login on a website, can also be stolen from your computer, potentially allowing others to log into your accounts without knowing the corresponding password.",
+    "description": "Disadvantages of how long cookies should be stored"
+  },
+
+  "removeAllCookies": {
+    "message": "Delete all cookies",
+    "description": "Delete all cookies"
+  },
+
+  "removeSince": {
+    "message": "Delete cookies from this period",
+    "description": "Delete cookies from this period"
+  },
+
+  "WebsiteSpecificSettings": {
+    "message": "Website-Specific Settings",
+    "description": "Website-Specific settings"
+  },
+
+  "WebsiteSpecificSettingsText": {
+    "message": "Here you can apply settings for individual websites. These settings overwrite the general settings for this specific website.",
+    "description": "Website-specific settings description"
+  },
+
+  "historySearch": {
+    "message": "From when to when should your history be searched, if you want it.",
+    "description": "From when to when should history be searched"
+  },
+  
+  "historySearchButton": {
+    "message": "Search history",
+    "description": "Search history"
+  },
+
+  "addManuellSite": {
+    "message": "Add",
+    "description": "Add"
+  },
+
+  "AssistantTitle": {
+    "message": "Assistant",
+    "description": "Assistant"
+  },
+
+  "AssistantText": {
+    "message": "With the help of this assistant that asks you a series of questions you can configure your cookie settings on your system in a simple way.",
+    "description": "Assistant description"
+  },
+
+  "StoreCookiesQuestion": {
+    "message": "Do you want to store cookies on your system?",
+    "description": "Store cookies on system"
+  },
+
+  "StoreCookiesConsequences": {
+    "message": "If you allow (\"Yes\") storing cookies on your system, you enable websites to collect data from you. If you do not allow storing cookies on your system (\"No\"), it can be that some websites have problems to offer certain services for you. Namely, a cookie enables a website to store data such as the contents of your shopping cart or whether you are currently logged in. Without cookies it would not be possible to use such functionality.",
+    "description": "Store cookies consequences"
+  },
+
+  "TimeToStore": {
+    "message": "How long do you want to store cookies?",
+    "description": "How long should cookies be stored"
+  },
+
+  "TimeToStoreExplanation": {
+    "message": "If you do not want for the cookies to be deleted, choose \"Always\". If you want you cookies to be deleted after closing the browser, please choose \"until the browser is closed\". If you never delete your cookies, other people who use your computer can access use websites, where you are always logged in, in your name. With regular deletion of the cookies you also prevent creating a detailed protocol of your surfing behaviour.",
+    "description": "Explanation of how long cookies should be stored"
+  },
+
+  "StoreThirdPartyCookiesQuestion": {
+    "message": "Do you want to store third-party cookies?",
+    "description": "Store third-party cookies question"
+  },
+
+  "StoreThirdPartyCookiesText": {
+    "message": "A third party is a service that uses other websites in order to present specific contents, such as ads. It could also be a service that you want to use, such as PayPal or reserving/buying a ticket from certain vendors. Using these cookies, the third parties can also collect information about the websites that you visit (where their services are used). If you choose \"Yes\", the third-party cookies will be stored. With \"No\" the third-party cookies will not be stored.",
+    "description": "Store third-party cookies description"
+  },
+
+  "SpecificWebsiteSettingsQuestion": {
+    "message": "Do you want to apply specific settings for specific websites?",
+    "description": "Specific website settings question"
+  },
+
+  "SpecificWebsiteSettingsConsequences": {
+    "message": "If you choose \"Yes\", you can apply certain settings for the websites that you trust and so overwrite the general settings for these websites.",
+    "description": "Specific website settings consequences"
+  },
+
+  "BrowserHistorySetting": {
+    "message": "Should your browser history be searched in order to determine your most visited websites?",
+    "description": "Browser history"
+  },
+
+  "BroswerHistorySettingDescription": {
+    "message": "Searching your browser history can determine your most visited websites. If you choose no, you would have to enter the websites manually in order to apply website-specific settings to them.",
+    "description": "Searching browser history description"
+  },
+
+  "TimePeriodSearch": {
+    "message": "Within which time period should your browser history be searched?",
+    "description": "Time period browser history should be searched"
+  },
+
+  "SelectBrowserHistorySince": {
+    "message": "Please select, since when your browser history should be searched.",
+    "description": "Since when browser history should be searched"
+  },
+
+  "displayWebsites": {
+    "message": "How many websites should be displayed to you?",
+    "description": "How many websites should be displayed"
+  },
+
+  "SelectNumberOfWebsites": {
+    "message": "By selecting a number you limit your choice to a few websites.",
+    "description": "Selecting number of websites"
+  },
+
+  "ThankYou": {
+    "message": "Thank you for using the assistant.",
+    "description": "Thank you"
+  },
+
+  "AssistantInfotext": {
+    "message": "You provided the assistant with all the information needed for configuring your settings. If you want to change your configuration, you can do it via other tabs above. You can start the assistant again and change your answers.",
+    "description": "Assistant info text"
+  },
+
+  "yes": {
+    "message": "Yes",
+    "description": "Yes"
+  },
+
+  "no": {
+    "message": "No",
+    "description": "No"
+  },
+
+  "LastWeek": {
+    "message": "Last week",
+    "description": "Last week"
+  },
+
+  "LastTwoWeeks": {
+    "message": "Last two weeks",
+    "description": "Last two weeks"
+  },
+
+  "LastMonth": {
+    "message": "Last month",
+    "description": "Last month"
+  },
+
+  "Restart": {
+    "message": "Start again",
+    "description": "Restart"
+  },
+
+  "alwaysSelected": {
+    "message": "Always",
+    "description": "Always"
+  },
+
+  "BrowserClosed": {
+    "message": "Until the browser is closed",
+    "description": "Until browser is closed"
+  },
+  
+  "since": {
+    "message": "since:",
+    "description": "Since"
+  },
+  
+  "manageStoredCookies": {
+	"message": "Manage stored cookies",
+	"description" : "Manage stored cookies"
+  },
+  
+ "loginCookies": {
+    "message": "Login-Cookies",
+    "description": "Login-Cookies"
+  },
+  
+  "storeCookiesTitle": {
+    "message": "Store cookies",
+    "description": "Store cookies"
+  },
+  
+  "AdvantagesLoginCookies": {
+	"message": " A login-cookie is the cookie that authenticates you on the website where you have already logged yourself in. With it you do not have to enter your login data each time you want to use a website. If you activate this option, the cookies that are responsible for this will not be deleted via this extension. So you have an advantage, that you no longer have to log yourself in on a website, and at the same time, no other data is collected from you via cookies.<br><b>Note: </b> this option is only available for some of the websites.",
+	"description" : "Advantages of login cookies"
+  },
+  
+  "DisadvantagesLoginCookies": {
+	"message": "When this option is activated, the cookies that authenticate you on a website after logging in remain stored on your system. It could then be possible for third-parties that use your computer to access your data on the websites that you use without logging in.",
+	"description" : "Disadvantages of login cookies"
+  },
+  
+  "proThirdparty": {
+    "message": "If you activate this option, you prevent storing third-party cookies from this website. With this option you can activate third-party cookies from the websites that you trust or if you need to allow such cookies temporarily. It is recommended to block third-party cookies in general and activate them with this option on some websites. <br>",
+    "description": "Advantages thirdparty"
+  },
+  
+  "conThirdparty": {
+    "message": "When this option is activated, so that third-party cookies are blocked, it can be that some functionality on websites is not working. For example, paying via PayPal or reserving/buying tickets for events might not work.",
+    "description": "Disadvantages thirdparty"
+  },
+  
+  "websiteBlockThirdparty": {
+    "message": "Block third-party cookies from this webpage",
+    "description": "Block third-party cookies from this webpage"
+  },
+  
+  "websiteSettings": {
+    "message": "Settings for the website",
+    "description": "Website settings"
+  },
+  
+  "openSettings": {
+    "message": "Open the options page",
+    "description": "Open settings"
+  },
+  
+  "cookieLivetimeOptions": {
+    "message": "<option>Always</option><option>Until the browser is closed</option><option>Never</option>",
+    "description": "Livetime options"
+  },
+  
+   "select": {
+    "message": "Select",
+    "description": "Select"
+  },
+  
+  "from": {
+    "message": "From:",
+    "description": "From"
+  },
+  
+  "departs": {
+    "message": "from:",
+    "description": "From"
+  },
+  
+  "to": {
+    "message": "To:",
+    "description": "To"
+  },
+  
+  "addWebsitesManually": {
+  "message" : "Add websites manually:",
+  "description": "Add sites manually"
+  },
+  
+  "storeCookiesLoginTitle": {
+  "message" : "Store login cookies",
+  "description": "Store login cookies"
+  },
+  
+  "option": {
+  "message" : "Options",
+  "description": "Options"
+  },
+  
+  "websitesTitle": {
+  "message" : "<b>Websites</b>",
+  "description": "Websites"
+  },
+  
+  "proTitle": {
+    "message": "Advantages",
+    "description": "Advantages"
+  },
+  
+  "conTitle": {
+    "message": "Disadvantages",
+    "description": "Disadvantages"
+  }
+  
+  
+  
+  
+
+  
+}

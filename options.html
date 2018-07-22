@@ -12,119 +12,98 @@
 </head>
 <body>
 <div class="text-center">
-<h1>Ihre Cookie Einstellungen</h1>
-<p>
-    Hier können Sie Ihre persönlichen Cookie Einstellungen anpassen.
-</p>
+<h1 id="options"></h1>
+<p id="optionsText"></p>
 </div>
 <div>
 
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation"><a href="#general" aria-controls="general" role="tab" data-toggle="tab">Allgemeine Einstellungen</a></li>
-        <li role="presentation"><a href="#specific" aria-controls="specific" role="tab" data-toggle="tab">Seitenspeziefische Einstellungen</a></li>
-        <li role="presentation" class="active"><a href="#assistant" aria-controls="assistant" role="tab" data-toggle="tab">Einstellungs-Assistent</a></li>
+        <li role="presentation"><a href="#general" aria-controls="general" role="tab" data-toggle="tab" id="generalSettingsTab" ></a></li>
+        <li role="presentation"><a href="#specific" aria-controls="specific" role="tab" data-toggle="tab" id="websiteSpecificSettingsTab"></a></li>
+        <li role="presentation" class="active"><a href="#assistant" aria-controls="assistant" role="tab" data-toggle="tab" id="assistantTab"></a></li>
     </ul>
 
     <!-- Tab panes -->
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane" id="general">
-            <h2>Allgemeine Einstellungen</h2>
-            <p>
-                Mit den folgenden Optionen können Sie festlegen, wie mit Cookies auf Ihrem System allgemein verfahren werden soll.
-                Um eine Entscheidung zu treffen, sollten Sie sich die Vor- und Nachteile durchlesen.
-            </p>
+            <h2 id="settings"></h2>
+            <p id= "settingsText" ></p>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title" style="display: inline-block;padding-right: 20%">Speichern von Drittanbieter Cookies zukünftig verhindern</h3>
+                    <h3 id="blockThirdParty" class="panel-title" style="display: inline-block;padding-right: 20%"></h3>
                     <img src="img/not_checked32.png" width="32" height="32" id="thirdPartyGeneral">
                 </div>
                 <div class="panel-body">
-                    <h4>Vorteile:</h4>
-                    <p>
-                        Verhindert, dass Dritte Profile Ihrer  Surf- und Kaufinteressen erstellen und diese für verschiedene Zwecke nutzen, z.B. um Ihnen personalisierte Werbung auf verschiedenen Webseiten anzuzeigen oder diese Profile zu verkaufen.
+                    <h4 id="AdvantagesTitle"></h4>
+                    <p id="AdvantagesText">
                     </p>
-                    <h4>Nachteile:</h4>
-                    <p>
-                        In seltenen Fällen kann diese Option zu Problemen in der Darstellung von Webseiten führen (z.B. bei „Gefällt mir“ – Feldern).
+                    <h4 id="DisadvantagesTitle"></h4>
+                    <p id="DisadvantagesText">
                     </p>
                 </div>
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title" style="display: inline-block;padding-right: 20%">Speichern von Cookies</h3>
+                    <h3 id="storeCookiesTitle" class="panel-title" style="display: inline-block;padding-right: 20%"></h3>
                     <label>
                         <select class="form-control" id="cookieLivetimeGeneral">
-                            <option selected="selected">Immer</option>
-                            <option>Bis der Browser geschlossen wird</option>
-                            <option>Niemals</option>
                         </select>
                     </label>
                 </div>
                 <div class="panel-body">
-                    <h4>Vorteile:</h4>
-                    <p>
-                        Mit dieser Option bestimmen sie wie lange ein Cookie auf Ihrem Computer gespeichert werden soll.<br/>
-                        <b>Immer: </b> Die Cookies werden nie gelöscht.<br/>
-                        <b>Bis der Browser geschlossen wird: </b> Wenn Sie den Browser schließen, werden alle Cookies gelöscht.<br/>
-                        <b>Niemals: </b> Es werden keine Cookies auf Ihrem Computer gespeichert.<br/>
+                    <h4 id="AdvantagesLivetimeGeneralTitle"></h4>
+                    <p id="AdvantagesLivetimeGeneral">
                     </p>
-                    <h4>Nachteile:</h4>
-                    <p>
-                        Ein gespeicherter Cookie kann von Ihrem Computer ausgelesen werden und so können von einer Website gespeicherte
-                        Informationen an andere Personen gelangen. Es können auch Cookies, die für den Login bei einer Website
-                        benutzt werden, von Ihrem Computer gestohlen werden.
+                    <h4 id="DisadvantagesLivetimeGeneralTitle"></h4>
+                    <p id="DisadvantagesLivetimeGeneral">
                     </p>
                 </div>
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Cookiespeicher verwalten</h3>
+                    <h3 id="manageStoredCookies" class="panel-title"></h3>
                 </div>
                 <div class="panel-body">
                     <div class="form-inline">
-                        <button class="btn btn-primary" id="removeAllCookies">Alle Cookies löschen</button>
-                        <label>
-                            Ab:
-                            <input type="date" class="begin" id="since">
+                        <button class="btn btn-primary" id="removeAllCookies"></button>
+                        <label for="since" id="since1">
                         </label>
-                        <button class="btn btn-primary" id="removeSince">Cookies in diesem Zeitraum löschen</button>
+						<input type="date" class="begin" id="since"/>
+                        <button class="btn btn-primary" id="removeSince"></button>
                     </div>
                 </div>
             </div>
         </div>
         <div role="tabpanel" class="tab-pane" id="specific">
-            <h2>Seitenspeziefische Einstellungen</h2>
-            <p>
-                Hier können Sie für einzelne Seiten die Einstellungen vornehmen. Diese Einstellungen überschreiben die
-                Allgemeinen Einstellungen für diese spezifische Seite.
+            <h2 id="WebsiteSpecificSettings"></h2>
+            <p id="WebsiteSpecificSettingsText">
             </p>
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div>
-                        <p>
-                            Von wann bis wann soll Ihr Verlauf durchsucht werden, sofern Sie es wollen.
+                        <p id="historySearch">
                         </p>
                         <div class="form-group">
-                            <label>Von:
-                                <input type="date" class="begin" id="beginSpec">
+                            <label for="beginSpec" id="fromHistory" >
                             </label>
-                            <label>Bis:
-                                <input type="date" class="end" id="endSpec">
+							<input type="date" class="begin" id="beginSpec">
+                            <label for="endSpec" id="toHistory">
                             </label>
+							<input type="date" class="end" id="endSpec">
                         </div>
                         <div class="form-group">
-                            <label>
-                                Wie viele Seiten sollen angezeigt werden?
-                                <input type="text" id="amountOfSites" list="predefined" value="10">
+                            <label for="amountOfSites" id="amountOfSitesQuestion">
+                 
+                            </label>
+							 <input type="text" id="amountOfSites" list="predefined" value="10">
                                 <datalist id="predefined">
                                     <option value="5"></option>
                                     <option value="10"></option>
                                     <option value="15"></option>
                                     <option value="20"></option>
                                 </datalist>
-                            </label>
-                            <button class="btn btn-primary" id="historybtn">Verlauf durchsuchen</button>
+                            <button class="btn btn-primary" id="historybtn"></button>
                         </div>
                     </div>
                 </div>
@@ -133,15 +112,16 @@
                 <div class="panel panel-default" id="tabofSites">
                     <div class="panel-heading">
                     <div>
-                        <span><b>Seiten</b></span>
+                        <span id="websitesTitle"></span>
                     </div>
                     <div>
                         <div class="form-group">
-                            <label>
-                                Manuelle Eingabe der Seiten:
-                                <input type="text" id="manSiteInput">
+                            <label for="manSiteInput" id="addWebsitesManually">
+                              
+                               
                             </label>
-                            <button class="btn btn-primary" id="addManuellSite">Hinzufügen</button>
+							 <input type="text" id="manSiteInput">
+                            <button class="btn btn-primary" id="addManuellSite"></button>
                         </div>
                     </div>
                     </div>
@@ -154,155 +134,111 @@
             </div>
         </div>
         <div role="tabpanel" class="tab-pane active" id="assistant">
-            <h2>Einstellungs-Assistent</h2>
-            <p>
-                Mithilfe dieses Assistenten, der Ihnen eine Reihe von Fragen stellt, können Sie auf einfache Art und Weise
-                Ihre Einstellungen für die Cookieverwaltung auf Ihrem System vornehmen.
+            <h2 id="AssistantTitle"></h2>
+            <p id="AssistantText"> 
             </p>
             <div class="panel panel-default" id="q1">
                 <div class="panel-heading">
-                    <h3>Wollen Sie Cookies auf Ihrem System speichern?</h3>
+                    <h3 id="StoreCookiesQuestion"></h3>
                 </div>
-                <div class="panel-body">
-                    Wenn Sie es erlauben (Ja), Cookies auf Ihrem System zu speichern, ermöglichen Sie es Webseiten, Daten
-                    über Sie zu sammeln. Wenn Sie es nicht erlauben (Nein), Cookies auf Ihrem System zu speichern, könnte
-                    es sein, dass manche Webseiten Probleme haben, Ihnen bestimmte Services anzubieten. Ein Cookie bietet
-                    einer Webseite nämlich die Möglichkeit, Informationen zu speichern wie z.B. was Sie bis jetzt in
-                    Ihrem Einkaufswagen haben oder ob Sie bereits angemeldet sind. Ohne Cookies wäre es nicht möglich
-                    einen solche Funktionalität anzubieten.
+                <div id="StoreCookiesConsequences" class="panel-body">
                 </div>
                 <div class="panel-footer">
-                    <button class="btn btn-primary" id="q1yes">Ja</button>
-                    <button class="btn btn-primary" id="q1no">Nein</button>
+                    <button class="btn btn-primary" id="q1yes"></button>
+                    <button class="btn btn-primary" id="q1no"></button>
                 </div>
             </div>
 
             <div class="panel panel-default" id="q2">
                 <div class="panel-heading">
-                    <h3>Wie lange sollen die Cookies gespeichert werden?</h3>
+                    <h3 id="TimeToStore"></h3>
                 </div>
-                <div class="panel-body">
-                    Wenn Sie nicht wollen, dass die Cookies gelöscht werden, wählen Sie bitte "Immer". Wenn Ihre Cookies
-                    mit dem Schließen des Browsers gelöscht werden sollen wählen Sie bitte "Bis zum Schließen des Browsers".
-                    Wenn Sie ihre Cookies nie löschen, können andere Personen die Ihren Computer benutzen auch ihre Webseiten
-                    benutzen, bei denen Sie immer angemeldet sind. Durch das regelmäßige Löschen der Cookies verhindern
-                    Sie auch, dass ein ausführliches Protokoll über Ihr Surfverhalten erstellt werden kann.
+                <div id="TimeToStoreExplanation" class="panel-body">
                 </div>
                 <div class="panel-footer">
-                    <button class="btn btn-primary" id="q2always">Immer</button>
-                    <button class="btn btn-primary" id="q2untilclose">Bis zum Schließen des Browsers</button>
+                    <button class="btn btn-primary" id="q2always"></button>
+                    <button class="btn btn-primary" id="q2untilclose"></button>
                 </div>
             </div>
 
             <div class="panel panel-default" id="q3">
                 <div class="panel-heading">
-                    <h3>Wollen Sie Cookies von Drittanbietern speichern?</h3>
+                    <h3 id="StoreThirdPartyCookiesQuestion"></h3>
                 </div>
-                <div class="panel-body">
-                    Ein Drittanbieter ist ein Dienst/Service, den eine Webseite benutzt, um bestimmte Inhalte darzustellen,
-                    wie anbieten von Werbung. Es könnte sich auch um einen Dienst handeln, den Sie benutzen wollen, wie
-                    zum Beispiel PayPal oder Ticket Reservierung/Kauf bei bestimmten Anbietern. Über diese Cookies
-                    können Drittanbieter auch Informationen über Ihre besuchten Seiten sammeln (auf denen ihre
-                    Dienste benutzt werden).
-                    Wenn Sie Ja wählen, werden die Drittanbieter-Cookies gespeichert. Bei Nein werden Die Drittanbieter-
-                    Cookies nicht gespeichert.
+                <div id="StoreThirdPartyCookiesText" class="panel-body">
                 </div>
                 <div class="panel-footer">
-                    <button class="btn btn-primary" id="q3yes">Ja</button>
-                    <button class="btn btn-primary" id="q3no">Nein</button>
+                    <button class="btn btn-primary" id="q3yes"></button>
+                    <button class="btn btn-primary" id="q3no"></button>
                 </div>
             </div>
 
             <div class="panel panel-default" id="q4">
                 <div class="panel-heading">
-                    <h3>Wollen Sie gesonderte Einstellungen für spezielle Webseiten?</h3>
+                    <h3 id="SpecificWebsiteSettingsQuestion"></h3>
                 </div>
-                <div class="panel-body">
-                    Wenn Sie Ja auswählen, können Sie für Webseiten, denen Sie vertrauen, bestimmte Einstellungen vornehmen,
-                    um so die allgemeinen Einstellungen für diese spezielle Webseite zu überschreiben.
+                <div id="SpecificWebsiteSettingsConsequences" class="panel-body">
                 </div>
                 <div class="panel-footer">
-                    <button class="btn btn-primary" id="q4yes">Ja</button>
-                    <button class="btn btn-primary" id="q4no">Nein</button>
+                    <button class="btn btn-primary" id="q4yes"></button>
+                    <button class="btn btn-primary" id="q4no"></button>
                 </div>
             </div>
 
             <div class="panel panel-default" id="q5">
                 <div class="panel-heading">
-                    <h3>Soll Ihr Verlauf durchsucht werden um Ihre meist besuchten Webseiten zu bestimmen?</h3>
+                    <h3 id="BrowserHistorySetting"></h3>
                 </div>
-                <div class="panel-body">
-                    Durch das Durchsuchen Ihres Verlaufs können Ihre meistbesuchten Seiten bestimmt werden.
-                    Wenn Sie Nein wählen, müssen Sie die Webseiten manuell eingeben, um die speziellen Einstellungen
-                    zu wählen.
+                <div id="BroswerHistorySettingDescription" class="panel-body">
                 </div>
                 <div class="panel-footer">
-                    <button class="btn btn-primary" id="q5yes">Ja</button>
-                    <button class="btn btn-primary" id="q5no">Nein</button>
+                    <button class="btn btn-primary" id="q5yes"></button>
+                    <button class="btn btn-primary" id="q5no"></button>
                 </div>
             </div>
 
             <div class="panel panel-default" id="q6">
                 <div class="panel-heading">
-                    <h3>Innerhalb welches Zeitraum soll Ihr Verlauf durchsucht werden?</h3>
+                    <h3 id="TimePeriodSearch"></h3>
                 </div>
-                <div class="panel-body">
-                    Geben Sie bitte an, ab wann Ihr Verlauf durchsucht werden soll.
+                <div id="SelectBrowserHistorySince" class="panel-body">
                 </div>
                 <div class="panel-footer">
-                    <button class="btn btn-primary" id="q6oneweek">Letzte Woche</button>
-                    <button class="btn btn-primary" id="q6twoweek">Letzte zwei Wochen</button>
-                    <button class="btn btn-primary" id="q6onemonth">Letzter Monat</button>
-                    <label for="q6selfdefinedvalue">ab: </label><input type="date" class="begin" id="q6selfdefinedvalue"/>
-                    <button class="btn btn-primary" id="q6selfdefined">Wählen</button>
+                    <button class="btn btn-primary" id="q6oneweek"></button>
+                    <button class="btn btn-primary" id="q6twoweek"></button>
+                    <button class="btn btn-primary" id="q6onemonth"></button>
+                    <label for="q6selfdefinedvalue" id="q6since"></label><input type="date" class="begin" id="q6selfdefinedvalue"/>
+                    <button class="btn btn-primary" id="q6selfdefined"></button>
                 </div>
             </div>
 
             <div class="panel panel-default" id="q7">
                 <div class="panel-heading">
-                    <h3>Wie viele Webseiten sollen Ihnen angezeigt werden?</h3>
+                    <h3 id="displayWebsites"></h3>
                 </div>
-                <div class="panel-body">
-                    Durch die Angabe/Auswahl einer Zahl beschränken Sie Ihre Auswahl auf weniger Webseiten.
+                <div id="SelectNumberOfWebsites" class="panel-body">
                 </div>
                 <div class="panel-footer">
                     <button class="btn btn-primary" id="q7five">5</button>
                     <button class="btn btn-primary" id="q7ten">10</button>
                     <button class="btn btn-primary" id="q7fifteen">15</button>
                     <button class="btn btn-primary" id="q7twenty">20</button>
-                    <label for="q7selfdefinedvalue">ab: </label><input type="number" id="q7selfdefinedvalue"/>
-                    <button class="btn btn-primary" id="q7selfdefined">Wählen</button>
+                    <label for="q7selfdefinedvalue" id="q7from"></label><input type="number" id="q7selfdefinedvalue"/>
+                    <button class="btn btn-primary" id="q7selfdefined"></button>
                 </div>
             </div>
 
             <div class="panel panel-default" id="q8">
                 <div class="panel-heading">
-                    <h3>Vielen Dank, dass Sie den Assistenten benutzt haben.</h3>
+                    <h3 id="ThankYou" ></h3>
                 </div>
-                <div class="panel-body">
-                    Sie haben dem Assistenten alle nötigen Informationen gegeben, um Ihre Einstellungen zu setzen.
-                    Wenn Sie Einstellungen ändern wollen, können Sie dies über die anderen Reiter in der obigen Leiste tun.
-                    Sie können auch den Assistent neustarten und Ihre Antworten ändern.
+                <div id="AssistantInfotext" class="panel-body">
                 </div>
                 <div class="panel-footer">
-                    <button class="btn btn-primary" id="q8restart">Neustarten</button>
+                    <button class="btn btn-primary" id="q8restart"></button>
                 </div>
             </div>
-
-            <div class="panel panel-default" id="q9">
-                <div class="panel-heading">
-                    <h3>Vielen Dank, dass Sie den Assistenten benutzt haben.</h3>
-                </div>
-                <div class="panel-body">
-                    Sie haben dem Assistenten alle nötigen Informationen gegeben, um Ihre Einstellungen zu setzen.
-                    Um die speziellen Einstellungen zu setzen, öffnen Sie bitte die seitenspeziefischen Einstellungen
-                    in dem Sie oben auf den Reiter "Seitenspeziefische Einstellungen" klicken. Der Assistent hat alles
-                    für Sie vorbereitet.
-                </div>
-                <div class="panel-footer">
-                    <button class="btn btn-primary" id="q9restart">Neustarten</button>
-                </div>
-            </div>
+			
         </div>
     </div>
 </div>

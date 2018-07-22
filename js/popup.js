@@ -28,6 +28,8 @@ function setCookieLivetimeSetting(pattern,value) {
 }
 
 $(document).ready(function () {
+	
+	addText();
     chrome.tabs.query({
         active: true,
         currentWindow: true
@@ -111,3 +113,24 @@ $(document).ready(function () {
         });
     });
 });
+
+function addText(){
+	$("#conTitle1").html(chrome.i18n.getMessage("conTitle"));
+	$("#proTitle1").html(chrome.i18n.getMessage("proTitle"));
+	$("#conTitle2").html(chrome.i18n.getMessage("conTitle"));
+	$("#proTitle2").html(chrome.i18n.getMessage("proTitle"));
+	$("#conTitle3").html(chrome.i18n.getMessage("conTitle"));
+	$("#proTitle3").html(chrome.i18n.getMessage("proTitle"));
+	$("#pro_livetime").html(chrome.i18n.getMessage("AdvantagesLivetimeGeneral"));
+	$("#con_livetime").html(chrome.i18n.getMessage("DisadvantagesLivetimeGeneral"));
+	$("#pro_login").html(chrome.i18n.getMessage("AdvantagesLoginCookies"));
+	$("#con_login").html(chrome.i18n.getMessage("DisadvantagesLoginCookies"));
+	$("#saveCookiesTitle").html(chrome.i18n.getMessage("storeCookiesTitle"));
+	$("#pro_thirdparty").html(chrome.i18n.getMessage("proThirdparty"));
+	$("#con_thirdparty").html(chrome.i18n.getMessage("conThirdparty"));
+	$("#websiteBlockThirdparty").html(chrome.i18n.getMessage("websiteBlockThirdparty"));
+	$("#LoginCookiesChange").html(chrome.i18n.getMessage("loginCookies"));
+	$("#openSettings").html(chrome.i18n.getMessage("openSettings"));
+	$("#cookieLivetime").html(chrome.i18n.getMessage("cookieLivetimeOptions"));
+		
+};

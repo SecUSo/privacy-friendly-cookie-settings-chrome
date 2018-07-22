@@ -2,7 +2,8 @@
   "manifest_version": 2,
   "name": "Privacy friendly Cookie settings",
   "version": "1.0",
-  "description": "Dieses Plugin ermöglicht es Ihnen auf einfache weise Ihre Einstellungen, bezüglich der verwaltung der Cookies, vorzunehmen.",
+  "description": "__MSG_extensionDescription__",
+  "default_locale": "de",
   "icons": {
     "16": "img/logo16.png",
     "48": "img/logo48.png",

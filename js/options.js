@@ -54,6 +54,9 @@ function formatDate(date) {
 
 $(document).ready(function () {
     var template_glob;
+	
+	addTexts();
+	
     $.get("templates/SpecificsidePanelTemplate.mst",function (template) {
         Mustache.parse(template);
         template_glob = template;
@@ -124,9 +127,22 @@ $(document).ready(function () {
 
             for (var j = 0; j < keys.length && j < requestetAmount; j++){
                 var rendered = Mustache.render(template_glob,{heading:"<span class='col-md-4'>" + keys[j] + "</span> <span class='col-md-4'><button\
-                        class=\"btn btn-primary specbtn\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#specSetting" + j +
-                "\" aria-expanded=\"false\" aria-controls=\"specSetting" + j + "\">Einstellungen</button></span>",
-                    panelbody:"<div class='panel-collapse collapse' role='tabpanel' id=\"specSetting"+ j +"\">"});
+                    class=\"btn btn-primary specbtn\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#specSetting" + j +
+					"\" aria-expanded=\"false\" aria-controls=\"specSetting" + j + "\">"+ chrome.i18n.getMessage("option")+"</button></span>",
+                    panelbody:"<div class='panel-collapse collapse' role='tabpanel' id=\"specSetting"+ j +"\">",
+					AdvantagesTitle: chrome.i18n.getMessage("AdvantagesTitle"),
+					DisadvantagesTitle: chrome.i18n.getMessage("DisadvantagesTitle"),
+					blockThirdpartyTitle: chrome.i18n.getMessage("websiteBlockThirdparty"),
+					proThirdparty: chrome.i18n.getMessage("proThirdparty"),
+					conThirdparty: chrome.i18n.getMessage("conThirdparty"),
+					storeCookiesTitle: chrome.i18n.getMessage("storeCookiesTitle"),
+					cookieLivetimeOptions: chrome.i18n.getMessage("cookieLivetimeOptions"),
+					advantagesLivetimeGeneral: chrome.i18n.getMessage("advantagesLivetimeGeneral"),
+					disadvantagesLivetimeGeneral: chrome.i18n.getMessage("disadvantagesLivetimeGeneral"),
+					advantagesLoginCookies: chrome.i18n.getMessage("advantagesLoginCookies"),
+					disadvantagesLoginCookies: chrome.i18n.getMessage("disadvantagesLoginCookies"),
+					storeCookiesLoginTitle: chrome.i18n.getMessage("storeCookiesLoginTitle")
+					});
                 tabofSites.append(rendered);
             }
             $(".cookieLivetimeSpecific").on("change",function (e) {
@@ -220,9 +236,22 @@ $(document).ready(function () {
         var tabofSites = $("#tabofSites").find("> div.panel-body > div.panel-group");
         var amount = $(".cookieLivetimeSpecific").length + 1;
         var rendered = Mustache.render(template_glob,{heading:"<span class='col-md-4'>" + site + "</span> <span class='col-md-4'><button\
-                        class=\"btn btn-primary specbtn\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#specSetting" + amount +
-        "\" aria-expanded=\"false\" aria-controls=\"specSetting" + amount + "\">Einstellungen</button></span>",
-            panelbody:"<div class='panel-collapse collapse' role='tabpanel' id=\"specSetting"+ amount +"\">"});
+            class=\"btn btn-primary specbtn\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#specSetting" + amount +
+			"\" aria-expanded=\"false\" aria-controls=\"specSetting" + amount + "\">"+ chrome.i18n.getMessage("option")+"</button></span>",
+            panelbody:"<div class='panel-collapse collapse' role='tabpanel' id=\"specSetting"+ amount +"\">",
+			AdvantagesTitle: chrome.i18n.getMessage("AdvantagesTitle"),
+			DisadvantagesTitle: chrome.i18n.getMessage("DisadvantagesTitle"),
+			blockThirdpartyTitle: chrome.i18n.getMessage("websiteBlockThirdparty"),
+			proThirdparty: chrome.i18n.getMessage("proThirdparty"),
+			conThirdparty: chrome.i18n.getMessage("conThirdparty"),
+			storeCookiesTitle: chrome.i18n.getMessage("storeCookiesTitle"),
+			cookieLivetimeOptions: chrome.i18n.getMessage("cookieLivetimeOptions"),
+			advantagesLivetimeGeneral: chrome.i18n.getMessage("advantagesLivetimeGeneral"),
+			disadvantagesLivetimeGeneral: chrome.i18n.getMessage("disadvantagesLivetimeGeneral"),
+			advantagesLoginCookies: chrome.i18n.getMessage("advantagesLoginCookies"),
+			disadvantagesLoginCookies: chrome.i18n.getMessage("disadvantagesLoginCookies"),
+			storeCookiesLoginTitle: chrome.i18n.getMessage("storeCookiesLoginTitle")
+		);
         tabofSites.append(rendered);
         $(".cookieLivetimeSpecific").on("change",function (e) {
             var url = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.childNodes[1].childNodes[1].childNodes[1].textContent;
@@ -353,3 +382,86 @@ $(document).ready(function () {
         });
     });
 });
+
+
+function addTexts(){
+	$("#options").html(chrome.i18n.getMessage("options"));
+	$("#optionsText").html(chrome.i18n.getMessage("optionsText"));
+	$("#settings").html(chrome.i18n.getMessage("settings"));
+	$("#settingsText").html(chrome.i18n.getMessage("settingsText"));
+	$("#blockThirdParty").html(chrome.i18n.getMessage("blockThirdParty"));
+	$("#AdvantagesLivetimeGeneralTitle").html(chrome.i18n.getMessage("AdvantagesTitle"));
+	$("#DisadvantagesLivetimeGeneralTitle").html(chrome.i18n.getMessage("DisadvantagesTitle"));
+	$("#AdvantagesTitle").html(chrome.i18n.getMessage("AdvantagesTitle"));
+	$("#AdvantagesText").html(chrome.i18n.getMessage("AdvantagesText"));
+	$("#DisadvantagesTitle").html(chrome.i18n.getMessage("DisadvantagesTitle"));
+	$("#DisadvantagesText").html(chrome.i18n.getMessage("DisadvantagesText"));
+	$("#since1").html(chrome.i18n.getMessage("since"));
+	$("#cookieLivetimeGeneral").html(chrome.i18n.getMessage("cookieLivetimeOptions"));
+	$("#manageStoredCookies").html(chrome.i18n.getMessage("manageStoredCookies"));
+	$("#alwaysSelected").html(chrome.i18n.getMessage("alwaysSelected"));
+	$("#BrowserClosed").html(chrome.i18n.getMessage("BrowserClosed"));
+	$("#neverSelected").html(chrome.i18n.getMessage("neverSelected"));
+	$("#AdvantagesLivetimeGeneral").html(chrome.i18n.getMessage("AdvantagesLivetimeGeneral"));
+	$("#DisadvantagesLivetimeGeneral").html(chrome.i18n.getMessage("DisadvantagesLivetimeGeneral"));
+	$("#removeAllCookies").html(chrome.i18n.getMessage("removeAllCookies"));
+	$("#removeSince").html(chrome.i18n.getMessage("removeSince"));
+	$("#WebsiteSpecificSettings").html(chrome.i18n.getMessage("WebsiteSpecificSettings"));
+	$("#WebsiteSpecificSettingsText").html(chrome.i18n.getMessage("WebsiteSpecificSettingsText"));
+	$("#websitesTitle").html(chrome.i18n.getMessage("websitesTitle"));
+	$("#historySearch").html(chrome.i18n.getMessage("historySearch"));
+	$("#AssistantTitle").html(chrome.i18n.getMessage("AssistantTitle"));
+	$("#AssistantText").html(chrome.i18n.getMessage("AssistantText"));
+	$("#StoreCookiesQuestion").html(chrome.i18n.getMessage("StoreCookiesQuestion"));
+	$("#StoreCookiesConsequences").html(chrome.i18n.getMessage("StoreCookiesConsequences"));
+	$("#storeCookiesTitle").html(chrome.i18n.getMessage("storeCookiesTitle"));
+	$("#addManuellSite").html(chrome.i18n.getMessage("addManuellSite"));
+	$("#TimeToStore").html(chrome.i18n.getMessage("TimeToStore"));
+	$("#TimeToStoreExplanation").html(chrome.i18n.getMessage("TimeToStoreExplanation"));
+	$("#StoreThirdPartyCookiesQuestion").html(chrome.i18n.getMessage("StoreThirdPartyCookiesQuestion"));
+	$("#StoreThirdPartyCookiesText").html(chrome.i18n.getMessage("StoreThirdPartyCookiesText"));
+
+	$("#SpecificWebsiteSettingsQuestion").html(chrome.i18n.getMessage("SpecificWebsiteSettingsQuestion"));
+	$("#SpecificWebsiteSettingsConsequences").html(chrome.i18n.getMessage("SpecificWebsiteSettingsConsequences"));
+	$("#BrowserHistorySetting").html(chrome.i18n.getMessage("BrowserHistorySetting"));
+	$("#BrowserHistorySettingDescription").html(chrome.i18n.getMessage("BrowserHistorySettingDescription"));
+	$("#SelectBrowserHistorySince").html(chrome.i18n.getMessage("SelectBrowserHistorySince"));
+	$("#displayWebsites").html(chrome.i18n.getMessage("displayWebsites"));
+	$("#amountOfSitesQuestion").html(chrome.i18n.getMessage("displayWebsites"));
+	$("#historybtn").html(chrome.i18n.getMessage("historySearchButton"));
+	$("#fromHistory").html(chrome.i18n.getMessage("from"));
+	$("#toHistory").html(chrome.i18n.getMessage("to"));
+	$("#SearchHistory").html(chrome.i18n.getMessage("SearchHistory"));
+	$("#AssistantInfotext").html(chrome.i18n.getMessage("AssistantInfotext"));
+	$("#LastWeek").html(chrome.i18n.getMessage("LastWeek"));
+	$("#LastTwoWeeks").html(chrome.i18n.getMessage("LastTwoWeeks"));
+	$("#LastMonth").html(chrome.i18n.getMessage("LastMonth"));
+	$("#ThankYou").html(chrome.i18n.getMessage("ThankYou"));
+	$("#q8restart").html(chrome.i18n.getMessage("Restart"));
+	$("#TimePeriodSearch").html(chrome.i18n.getMessage("TimePeriodSearch"));
+	$("#SelectNumberOfWebsites").html(chrome.i18n.getMessage("SelectNumberOfWebsites"));
+	$("#addWebsitesManually").html(chrome.i18n.getMessage("addWebsitesManually"));
+
+	$("#q1yes").html(chrome.i18n.getMessage("yes"));
+	$("#q1no").html(chrome.i18n.getMessage("no"));
+	$("#q2always").html(chrome.i18n.getMessage("alwaysSelected"));
+	$("#q2untilclose").html(chrome.i18n.getMessage("BrowserClosed"));
+	$("#q3yes").html(chrome.i18n.getMessage("yes"));
+	$("#q3no").html(chrome.i18n.getMessage("no"));
+	$("#q4yes").html(chrome.i18n.getMessage("yes"));
+	$("#q4no").html(chrome.i18n.getMessage("no"));
+	$("#q5yes").html(chrome.i18n.getMessage("yes"));
+	$("#q5no").html(chrome.i18n.getMessage("no"));
+	$("#q6since").html(chrome.i18n.getMessage("since"));
+	$("#q6oneweek").html(chrome.i18n.getMessage("LastWeek"));
+	$("#q6twoweek").html(chrome.i18n.getMessage("LastTwoWeeks"));
+	$("#q6onemonth").html(chrome.i18n.getMessage("LastMonth"));
+	$("#q6selfdefined").html(chrome.i18n.getMessage("select"));
+	$("#q7selfdefined").html(chrome.i18n.getMessage("select"));
+	$("#q7from").html(chrome.i18n.getMessage("departs"));
+
+	$("#generalSettingsTab").html(chrome.i18n.getMessage("settings"));
+	$("#websiteSpecificSettingsTab").html(chrome.i18n.getMessage("WebsiteSpecificSettings"));
+	$("#assistantTab").html(chrome.i18n.getMessage("AssistantTitle"));
+
+};

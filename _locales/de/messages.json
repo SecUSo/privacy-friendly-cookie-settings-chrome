@@ -1,0 +1,342 @@
+{
+
+ "extensionDescription": {
+    "message": "Dieses Plugin ermöglicht es Ihnen auf einfache weise Ihre Einstellungen, bezüglich der verwaltung der Cookies, vorzunehmen.",
+    "description": "Description of the extension."
+  },
+  
+  "options": {
+    "message": "Ihre Cookie Einstellungen",
+    "description": "Cookie options"
+  },
+
+  "optionsText": {
+    "message": "Hier können Sie Ihre persönlichen Cookie Einstellungen anpassen.",
+    "description": "Configure cookie settings"
+  },
+
+  "settings": {
+    "message": "Allgemeine Einstellungen",
+    "description": "General settings"
+  },
+
+  "settingsText": {
+    "message": "Mit den folgenden Optionen können Sie festlegen, wie mit Cookies auf Ihrem System allgemein verfahren werden soll. Um eine Entscheidung zu treffen, sollten Sie sich die Vor- und Nachteile durchlesen.",
+    "description": "General settings description"
+  },
+
+  "blockThirdParty": {
+    "message": "Speichern von Drittanbieter Cookies zukünftig verhindern",
+    "description": "Block third-party cookies"
+  },
+
+  "AdvantagesTitle": {
+    "message": "Vorteile:",
+    "description": "Advantages"
+  },
+
+  "AdvantagesText": {
+    "message": "Verhindert, dass Dritte Profile Ihrer  Surf- und Kaufinteressen erstellen und diese für verschiedene Zwecke nutzen, z.B. um Ihnen personalisierte Werbung auf verschiedenen Webseiten anzuzeigen oder diese Profile zu verkaufen.",
+    "description": "Advantages description"
+  },
+
+  "DisadvantagesTitle": {
+    "message": "Nachteile:",
+    "description": "Disadvantages"
+  },
+
+  "DisadvantagesText": {
+    "message": "In seltenen Fällen kann diese Option zu Problemen in der Darstellung von Webseiten führen (z.B. bei „Gefällt mir“ – Feldern).",
+    "description": "Disadvantages description"
+  },
+
+  "AdvantagesLivetimeGeneral": {
+    "message": "Mit dieser Option bestimmen sie wie lange ein Cookie auf Ihrem Computer gespeichert werden soll.<br/><b>Immer: </b> Die Cookies werden nie gelöscht.<br/><b>Bis der Browser geschlossen wird: </b> Wenn Sie den Browser schließen, werden alle Cookies gelöscht.<br/><b>Niemals: </b> Es werden keine Cookies auf Ihrem Computer gespeichert.<br/>",
+    "description": "Advantages of how long cookies should be stored"
+  },
+
+  "DisadvantagesLivetimeGeneral": {
+    "message": "Ein gespeicherter Cookie kann von Ihrem Computer ausgelesen werden und so können von einer Website gespeicherte Informationen an andere Personen gelangen. Es können auch Cookies, die für den Login bei einer Website benutzt werden, von Ihrem Computer gestohlen werden.",
+    "description": "Disadvantages of how long cookies should be stored"
+  },
+
+  "removeAllCookies": {
+    "message": "Alle Cookies löschen",
+    "description": "Delete all cookies"
+  },
+
+  "removeSince": {
+    "message": "Cookies in diesem Zeitraum löschen",
+    "description": "Delete cookies from this period"
+  },
+
+  "WebsiteSpecificSettings": {
+    "message": "Seitenspeziefische Einstellungen",
+    "description": "Website-Specific settings"
+  },
+
+  "WebsiteSpecificSettingsText": {
+    "message": "Hier können Sie für einzelne Seiten die Einstellungen vornehmen. Diese Einstellungen überschreiben die allgemeinen Einstellungen für diese spezifische Seite.",
+    "description": "Website-Specific settings description"
+  },
+
+  "historySearch": {
+    "message": "Von wann bis wann soll Ihr Verlauf durchsucht werden, sofern Sie es wollen.",
+    "description": "From when to when should history be searched"
+  },
+  
+  "historySearchButton": {
+    "message": "Verlauf durchsuchen",
+    "description": "Search history"
+  },
+
+  "addManuellSite": {
+    "message": "Hinzufügen",
+    "description": "Add"
+  },
+
+  "AssistantTitle": {
+    "message": "Einstellungs-Assistent",
+    "description": "Assistant"
+  },
+
+  "AssistantText": {
+    "message": "Mithilfe dieses Assistenten, der Ihnen eine Reihe von Fragen stellt, können Sie auf einfache Art und Weise Ihre Einstellungen für die Cookieverwaltung auf Ihrem System vornehmen.",
+    "description": "Assistant description"
+  },
+
+  "StoreCookiesQuestion": {
+    "message": "Wollen Sie Cookies auf Ihrem System speichern?",
+    "description": "Store cookies on system"
+  },
+
+  "StoreCookiesConsequences": {
+    "message": "Wenn Sie es erlauben (Ja), Cookies auf Ihrem System zu speichern, ermöglichen Sie es Webseiten, Daten über Sie zu sammeln. Wenn Sie es nicht erlauben (Nein), Cookies auf Ihrem System zu speichern, könnte es sein, dass manche Webseiten Probleme haben, Ihnen bestimmte Services anzubieten. Ein Cookie bietet einer Webseite nämlich die Möglichkeit, Informationen zu speichern wie z.B. was Sie bis jetzt in Ihrem Einkaufswagen haben oder ob Sie bereits angemeldet sind. Ohne Cookies wäre es nicht möglich einen solche Funktionalität anzubieten.",
+    "description": "Store cookies consequences"
+  },
+
+  "TimeToStore": {
+    "message": "Wie lange sollen die Cookies gespeichert werden?",
+    "description": "How long should cookies be stored"
+  },
+
+  "TimeToStoreExplanation": {
+    "message": "Wenn Sie nicht wollen, dass die Cookies gelöscht werden, wählen Sie bitte \"Immer\". Wenn Ihre Cookies mit dem Schließen des Browsers gelöscht werden sollen wählen Sie bitte \"Bis zum Schließen des Browsers\". Wenn Sie ihre Cookies nie löschen, können andere Personen, die Ihren Computer benutzen, auch ihre Webseiten benutzen, bei denen Sie immer angemeldet sind. Durch das regelmäßige Löschen der Cookies verhindern Sie auch, dass ein ausführliches Protokoll über Ihr Surfverhalten erstellt werden kann.",
+    "description": "Explanation of how long cookies should be stored"
+  },
+
+  "StoreThirdPartyCookiesQuestion": {
+    "message": "Wollen Sie Cookies von Drittanbietern speichern?",
+    "description": "Store third-party cookies question"
+  },
+
+  "StoreThirdPartyCookiesText": {
+    "message": "Ein Drittanbieter ist ein Dienst/Service, den eine Webseite benutzt, um bestimmte Inhalte darzustellen, wie anbieten von Werbung. Es könnte sich auch um einen Dienst handeln, den Sie benutzen wollen, wie zum Beispiel PayPal oder Ticket Reservierung/Kauf bei bestimmten Anbietern. Über diese Cookies können Drittanbieter auch Informationen über Ihre besuchten Seiten sammeln (auf denen ihre Dienste benutzt werden). Wenn Sie Ja wählen, werden die Drittanbieter-Cookies gespeichert. Bei Nein werden Die Drittanbieter-Cookies nicht gespeichert.",
+    "description": "Store third-party cookies description"
+  },
+
+  "SpecificWebsiteSettingsQuestion": {
+    "message": "Wollen Sie gesonderte Einstellungen für spezielle Webseiten?",
+    "description": "Specific website settings question"
+  },
+
+  "SpecificWebsiteSettingsConsequences": {
+    "message": "Wenn Sie Ja auswählen, können Sie für Webseiten, denen Sie vertrauen, bestimmte Einstellungen vornehmen, um so die allgemeinen Einstellungen für diese spezielle Webseite zu überschreiben.",
+    "description": "Specific website settings consequences"
+  },
+
+  "BrowserHistorySetting": {
+    "message": "Soll Ihr Verlauf durchsucht werden, um Ihre meist besuchten Webseiten zu bestimmen?",
+    "description": "Browser history"
+  },
+
+  "BroswerHistorySettingDescription": {
+    "message": "Durch das Durchsuchen Ihres Verlaufs können Ihre meistbesuchten Seiten bestimmt werden. Wenn Sie Nein wählen, müssen Sie die Webseiten manuell eingeben, um die speziellen Einstellungen zu wählen.",
+    "description": "Searching browser history description"
+  },
+
+  "TimePeriodSearch": {
+    "message": "Innerhalb welches Zeitraum soll Ihr Verlauf durchsucht werden?",
+    "description": "Time period browser history should be searched"
+  },
+
+  "SelectBrowserHistorySince": {
+    "message": "Geben Sie bitte an, ab wann Ihr Verlauf durchsucht werden soll.",
+    "description": "Since when browser history should be searched"
+  },
+
+  "displayWebsites": {
+    "message": "Wie viele Webseiten sollen Ihnen angezeigt werden?",
+    "description": "How many websites should be displayed"
+  },
+
+  "SelectNumberOfWebsites": {
+    "message": "Durch die Angabe/Auswahl einer Zahl beschränken Sie Ihre Auswahl auf weniger Webseiten.",
+    "description": "Selecting number of websites"
+  },
+
+  "ThankYou": {
+    "message": "Vielen Dank, dass Sie den Assistenten benutzt haben.",
+    "description": "Thank you"
+  },
+
+  "AssistantInfotext": {
+    "message": "Sie haben dem Assistenten alle nötigen Informationen gegeben, um Ihre Einstellungen zu setzen. Wenn Sie Einstellungen ändern wollen, können Sie dies über die anderen Reiter in der obigen Leiste tun. Sie können auch den Assistent neustarten und Ihre Antworten ändern.",
+    "description": "Assistant info text"
+  },
+
+  "yes": {
+    "message": "Ja",
+    "description": "Yes"
+  },
+
+  "no": {
+    "message": "Nein",
+    "description": "No"
+  },
+
+  "LastWeek": {
+    "message": "Letzte Woche",
+    "description": "Last week"
+  },
+
+  "LastTwoWeeks": {
+    "message": "Letzte zwei Wochen",
+    "description": "Last two weeks"
+  },
+
+  "LastMonth": {
+    "message": "Letzter Monat",
+    "description": "Last month"
+  },
+
+  "Restart": {
+    "message": "Neustarten",
+    "description": "Restart"
+  },
+
+  "alwaysSelected": {
+    "message": "Immer",
+    "description": "Always"
+  },
+
+  "BrowserClosed": {
+    "message": "Bis zum Schließen des Browsers",
+    "description": "Until browser is closed"
+  },
+  
+  "since": {
+    "message": "Seit:",
+    "description": "Since"
+  },
+  
+  "manageStoredCookies": {
+	"message": "Cookiespeicher verwalten",
+	"description" : "Manage stored cookies"
+  },
+  
+  "loginCookies": {
+    "message": "Login-Cookies behalten",
+    "description": "Login-Cookies"
+  },
+  
+  "storeCookiesTitle": {
+    "message": "Speichern von Cookies",
+    "description": "Store cookies"
+  },
+  
+  "AdvantagesLoginCookies": {
+	"message": "Ein Login-Cookie ist der Cookie, der Sie bei der Webseite authentifiziert, bei der Sie sich bereits eingeloggt haben. Dadurch müssen Sie nicht immer wieder die Logindaten eingeben, um eine Webseite zu benutzen. Wenn Sie diese Option aktivieren, werden die Cookies die dafür zuständig sind nicht durch diese Erweiterung gelöscht. Dadurch haben Sie den Vorteil, dass Sie sich nicht immer wieder bei einer Webseite anmelden müssen und gleichzeitig keine anderen Daten durch Cookies über Sie gesammelt werden können.<br><b>Hinweis: </b> Diese Option ist nur für manche Webseiten verfügbar.",
+	"description" : "Advantages of login cookies"
+  },
+  
+  "DisadvantagesLoginCookies": {
+	"message": "Wenn Sie diese Option aktivieren bleiben die Cookies, die Sie auf einer Webseite nach dem anmelden authentifizieren, auf Ihrem System erhalten. Dadurch könnten Dritte, die Ihren Computer benutzen, sich ohne Anmeldedaten Zugang zu Ihren Daten verschaffen, die auf Webseiten hinterlegt sind, die Sie benutzen.",
+	"description" : "Disadvantages of login cookies"
+  },
+  
+  "proThirdparty": {
+    "message": "Wenn Sie diese Option aktivieren, verhindern Sie das Setzen von Drittanbieter Cookies von dieser Seite. Mit dieser Option können Sie Seiten, denen Sie vertrauen oder wenn Sie es temporär brauchen, die Drittanbieter-Cookies aktivieren. Es ist empfohlen, die Drittanbieter-Cookies allgemein zu blockieren und über diese Option für manche Seiten die Blockade zu deaktivieren. <br>",
+    "description": "Advantages thirdparty"
+  },
+  
+  "conThirdparty": {
+    "message": "Wenn diese Option aktiviert ist, also die Drittanbieter-Cookies blockiert werden, könnte es sein, dass manche Funktionalitäten von Webseiten nicht funktionieren. Das kann zum Beispiel das Bezahlen mit PayPal betreffen oder das Reservieren/Kaufen von Karten für Veranstaltungen.",
+    "description": "Disadvantages thirdparty"
+  },
+  
+  "websiteBlockThirdparty": {
+    "message": "Drittanbieter-Cookies von dieser Seite blockieren",
+    "description": "Block third-party cookies from this webpage"
+  },
+  
+  "websiteSettings": {
+    "message": "Einstellungen für Seite",
+    "description": "Website settings"
+  },
+  
+  "openSettings": {
+    "message": "Optionsseite öffnen",
+    "description": "Open settings"
+  },
+  
+  "cookieLivetimeOptions": {
+    "message": "<option>Immer</option><option>Bis der Browser geschlossen wird</option><option>Niemals</option>",
+    "description": "Livetime options"
+  },
+  
+   "select": {
+    "message": "Auswählen",
+    "description": "Select"
+  },
+  
+  "from": {
+    "message": "Von:",
+    "description": "From"
+  },
+  
+  "departs": {
+    "message": "ab:",
+    "description": "From"
+  },
+  
+  "to": {
+    "message": "Bis:",
+    "description": "To"
+  },
+  
+  "addWebsitesManually": {
+  "message" : "Manuelle Eingabe der Seiten:",
+  "description": "Add sites manually"
+  },
+  
+  "storeCookiesLoginTitle": {
+  "message" : "Login-Cookies speichern",
+  "description": "Store login cookies"
+  },
+  
+  "option": {
+  "message" : "Einstellungen",
+  "description": "Options"
+  },
+  
+  "websitesTitle": {
+  "message" : "<b>Seiten</b>",
+  "description": "Websites"
+  },
+  
+  "proTitle": {
+    "message": "Vorteile",
+    "description": "Advantages"
+  },
+  
+  "conTitle": {
+    "message": "Nachteile",
+    "description": "Disadvantages"
+  }
+  
+  
+  
+
+  
+}
